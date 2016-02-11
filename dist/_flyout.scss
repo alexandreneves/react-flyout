@@ -1,0 +1,167 @@
+// VARIABLES
+
+$f_z_index_flyout: 7000 !default;
+$f_z_index_flyout--dropdown: 5000 !default;
+
+$f_font_size_big: 0.9rem !default;
+$f_font_size_small: 0.8rem !default;
+
+$f_color_light: #fff !default;
+$f_color_dark: #313941 !default;
+$f_color_border: #ddd !default;
+
+$f_border_radius: 3px !default;
+
+// TOOLS
+
+.flyout-clearfix {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+// CONTAINER CLASSES
+
+.has-flyout--fixed { // body
+    background: $f_color_dark;
+    position: fixed;
+    overflow: hidden;
+}
+
+.has-flyout {
+    position: relative;
+    display: inline-block;
+}
+
+// FLYOUT
+
+.flyout {
+    z-index: $f_z_index_flyout;
+    position: absolute;
+    box-sizing: border-box;
+    padding: 1px; // necessary to give some space to the system scrollbar
+    font-size: $f_font_size_small;
+    text-align: left; 
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.075);
+
+    // WRAPPER
+    .flyout__wrapper {
+        overflow: auto;
+        overflow-x: hidden;
+        height: auto;
+    }
+
+    // THEME LIGHT
+    &.flyout--light {
+        border: 1px solid $f_color_border; // only for outerHeight
+        background: $f_color_light;
+        color: $f_color_dark;
+    }
+
+    // THEME DARK
+    &.flyout--dark {
+        background: $f_color_dark;
+        color: $f_color_light;
+    }
+
+    // FIXED
+    &.flyout--fixed {
+        z-index: $f_z_index_flyout;
+        position: fixed;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+
+        .flyout__wrapper {
+            height: calc(100% - 45px);
+            max-height: none !important;
+        }
+    }
+
+    // TYPE MENU
+    &.flyout--menu {
+        .flyout__wrapper {
+            padding: 10px 14px;
+        }
+    }
+
+    // TYPE DROPDOWN
+    &.flyout--dropdown {
+        z-index: $f_z_index_flyout--dropdown;
+        margin: 1px 0;
+        font-size: $f_font_size_small;
+        border-radius: $f_border_radius;
+
+        .flyout__wrapper {
+            padding: 0 0.7rem;
+        }
+
+        ul {
+            margin: 0;
+
+            li {
+                @extend .flyout-clearfix;
+
+                width: 100%;
+                margin: 0;
+                padding: 0.5rem 0;
+                font-size: $f_font_size_big;
+                border-bottom: 1px solid $f_color_border;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                a {
+                    display: block;
+
+                    p {
+                        margin: 0;
+                        color: $f_color_dark;
+                        font-size: $f_font_size_small;
+                        line-height: 1.4;
+                    }
+                }
+            }
+        }
+
+        &.flyout--dropdown-has-icons-left {
+            ul li a {
+                position: relative;
+                padding-left: 25px;
+
+                > i {
+                    font-size: 18px;
+
+                    &:first-child {
+                        position: absolute;
+                        top: 1px;
+                        left: -5px;
+                        width: 25px;
+                        margin-right: 5px;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        &.flyout--dropdown-has-icons-right {
+            ul li a {
+                > i {
+                    font-size: 18px;
+
+                    &.check {
+                        float: right;
+                        margin-left: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
