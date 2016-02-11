@@ -1,5 +1,5 @@
 # folders
 node_modules
 # files
-npm-debug.log
 .DS_Store
+npm-debug.log

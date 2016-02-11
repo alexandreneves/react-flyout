@@ -1,25 +1,25 @@
 {
-  "name": "react-flyout",
-  "version": "1.0.2",
-  "description": "React Component to integrate Flyouts into your project.",
-  "readme": "README.md",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src/FlyoutCore.jsx --out-file dist/FlyoutCore.js & babel src/FlyoutWrapper.jsx --out-file dist/FlyoutWrapper.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alexandreneves/react-flyout.git"
-  },
-  "author": "Alexandre Neves <adn.denied@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/alexandreneves/react-flyout/issues"
-  },
-  "homepage": "https://github.com/alexandreneves/react-flyout#readme",
-  "devDependencies": {
-    "babel-preset-react": "^6.3.13",
-    "babel-preset-es2015": "^6.3.13"
-  }
+    "name": "react-flyout",
+    "version": "1.0.2",
+    "description": "React Component to integrate Flyouts into your project.",
+    "readme": "README.md",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "babel src/FlyoutCore.jsx --out-file dist/FlyoutCore.js & babel src/FlyoutWrapper.jsx --out-file dist/FlyoutWrapper.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/alexandreneves/react-flyout.git"
+    },
+    "author": "Alexandre Neves <adn.denied@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/alexandreneves/react-flyout/issues"
+    },
+    "homepage": "https://github.com/alexandreneves/react-flyout#readme",
+    "devDependencies": {
+        "babel-preset-react": "^6.3.13",
+        "babel-preset-es2015": "^6.3.13"
+    }
 }
