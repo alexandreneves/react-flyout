@@ -2,7 +2,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import FlyoutCore from 'app/components/shared/flyout/FlyoutCore';
+import FlyoutCore from './FlyoutCore';
 
 class FlyoutWrapper extends React.Component {
     constructor(props) {
