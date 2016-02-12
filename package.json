@@ -1,6 +1,6 @@
 {
   "name": "react-flyout",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "React Component to integrate Flyouts into your project.",
   "readme": "README.md",
   "main": "index.js",
