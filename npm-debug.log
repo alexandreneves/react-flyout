@@ -1,142 +1,29 @@
 0 info it worked if it ends with ok
 1 verbose cli [ '/usr/local/bin/node',
 1 verbose cli   '/usr/local/bin/npm',
-1 verbose cli   'publish',
-1 verbose cli   'patch' ]
+1 verbose cli   'version',
+1 verbose cli   '1.0.3' ]
 2 info using npm@3.3.6
 3 info using node@v5.0.0
-4 verbose publish [ 'patch' ]
-5 silly cache add args [ 'patch', null ]
-6 verbose cache add spec patch
-7 silly cache add parsed spec Result {
-7 silly cache add   raw: 'patch',
-7 silly cache add   scope: null,
-7 silly cache add   name: 'patch',
-7 silly cache add   rawSpec: '',
-7 silly cache add   spec: '*',
-7 silly cache add   type: 'range' }
-8 silly addNamed patch@*
-9 verbose addNamed "*" is a valid semver range for patch
-10 silly addNameRange { name: 'patch', range: '*', hasData: false }
-11 silly mapToRegistry name patch
-12 silly mapToRegistry using default registry
-13 silly mapToRegistry registry https://registry.npmjs.org/
-14 silly mapToRegistry uri https://registry.npmjs.org/patch
-15 verbose addNameRange registry:https://registry.npmjs.org/patch not in flight; fetching
-16 verbose request uri https://registry.npmjs.org/patch
-17 verbose request no auth needed
-18 info attempt registry request try #1 at 4:31:30 PM
-19 verbose request using bearer token for auth
-20 verbose request id 3102a36bda152471
-21 http request GET https://registry.npmjs.org/patch
-22 http 200 https://registry.npmjs.org/patch
-23 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-23 verbose headers   etag: '"2X1SUQ95LWDOWMJDBOMKSX7EP"',
-23 verbose headers   'content-type': 'application/json',
-23 verbose headers   'cache-control': 'max-age=300',
-23 verbose headers   'content-length': '5006',
-23 verbose headers   'accept-ranges': 'bytes',
-23 verbose headers   date: 'Thu, 11 Feb 2016 16:31:31 GMT',
-23 verbose headers   via: '1.1 varnish',
-23 verbose headers   connection: 'keep-alive',
-23 verbose headers   'x-served-by': 'cache-lcy1123-LCY',
-23 verbose headers   'x-cache': 'MISS',
-23 verbose headers   'x-cache-hits': '0',
-23 verbose headers   'x-timer': 'S1455208290.821840,VS0,VE370',
-23 verbose headers   vary: 'Accept' }
-24 silly get cb [ 200,
-24 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-24 silly get     etag: '"2X1SUQ95LWDOWMJDBOMKSX7EP"',
-24 silly get     'content-type': 'application/json',
-24 silly get     'cache-control': 'max-age=300',
-24 silly get     'content-length': '5006',
-24 silly get     'accept-ranges': 'bytes',
-24 silly get     date: 'Thu, 11 Feb 2016 16:31:31 GMT',
-24 silly get     via: '1.1 varnish',
-24 silly get     connection: 'keep-alive',
-24 silly get     'x-served-by': 'cache-lcy1123-LCY',
-24 silly get     'x-cache': 'MISS',
-24 silly get     'x-cache-hits': '0',
-24 silly get     'x-timer': 'S1455208290.821840,VS0,VE370',
-24 silly get     vary: 'Accept' } ]
-25 verbose get saving patch to /Users/aneves/.npm/registry.npmjs.org/patch/.cache.json
-26 silly addNameRange number 2 { name: 'patch', range: '*', hasData: true }
-27 silly addNameRange versions [ 'patch', [ '0.0.1' ] ]
-28 silly addNamed patch@0.0.1
-29 verbose addNamed "0.0.1" is a plain semver version for patch
-30 silly cache afterAdd patch@0.0.1
-31 verbose afterAdd /Users/aneves/.npm/patch/0.0.1/package/package.json not in flight; writing
-32 verbose afterAdd /Users/aneves/.npm/patch/0.0.1/package/package.json written
-33 silly publish { name: 'patch',
-33 silly publish   version: '0.0.1',
-33 silly publish   description: 'an object patching tool',
-33 silly publish   main: 'patch.js',
-33 silly publish   directories: { test: 'tests' },
-33 silly publish   dependencies: {},
-33 silly publish   devDependencies: { specify: '~1.1.2' },
-33 silly publish   scripts: { test: 'node tests/*.js' },
-33 silly publish   repository: '',
-33 silly publish   author: { name: 'john chesley', email: 'john@chesl.es' },
-33 silly publish   license: 'MIT',
-33 silly publish   _id: 'patch@0.0.1',
-33 silly publish   dist:
-33 silly publish    { shasum: '293056dbbc71c979a1b7273308b12c5460246833',
-33 silly publish      tarball: 'http://registry.npmjs.org/patch/-/patch-0.0.1.tgz' },
-33 silly publish   _npmVersion: '1.1.65',
-33 silly publish   _npmUser: { name: 'chesles', email: 'john@chesl.es' },
-33 silly publish   maintainers: [ { name: 'chesles', email: 'john@chesl.es' } ],
-33 silly publish   _shasum: '293056dbbc71c979a1b7273308b12c5460246833',
-33 silly publish   _resolved: 'https://registry.npmjs.org/patch/-/patch-0.0.1.tgz',
-33 silly publish   _from: 'patch@*',
-33 silly publish   readme: 'ERROR: No README data found!' }
-34 info lifecycle patch@0.0.1~prepublish: patch@0.0.1
-35 silly lifecycle patch@0.0.1~prepublish: no script for prepublish, continuing
-36 verbose getPublishConfig undefined
-37 silly mapToRegistry name patch
-38 silly mapToRegistry using default registry
-39 silly mapToRegistry registry https://registry.npmjs.org/
-40 silly mapToRegistry uri https://registry.npmjs.org/patch
-41 verbose publish registryBase https://registry.npmjs.org/
-42 silly publish uploading /Users/aneves/.npm/patch/0.0.1/package.tgz
-43 verbose request uri https://registry.npmjs.org/patch
-44 verbose request sending authorization for write operation
-45 info attempt registry request try #1 at 4:31:31 PM
-46 verbose request using bearer token for auth
-47 http request PUT https://registry.npmjs.org/patch
-48 http 403 https://registry.npmjs.org/patch
-49 verbose headers { 'content-type': 'application/json',
-49 verbose headers   'cache-control': 'max-age=300',
-49 verbose headers   'content-length': '97',
-49 verbose headers   'accept-ranges': 'bytes',
-49 verbose headers   date: 'Thu, 11 Feb 2016 16:31:32 GMT',
-49 verbose headers   via: '1.1 varnish',
-49 verbose headers   connection: 'keep-alive',
-49 verbose headers   'x-served-by': 'cache-lcy1130-LCY',
-49 verbose headers   'x-cache': 'MISS',
-49 verbose headers   'x-cache-hits': '0',
-49 verbose headers   'x-timer': 'S1455208291.453484,VS0,VE593' }
-50 verbose request invalidating /Users/aneves/.npm/registry.npmjs.org/patch on PUT
-51 error publish Failed PUT 403
-52 verbose stack Error: You do not have permission to publish 'patch'. Are you logged in as the correct user? : patch
-52 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
-52 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
-52 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
-52 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:198:22)
-52 verbose stack     at emitTwo (events.js:87:13)
-52 verbose stack     at Request.emit (events.js:172:7)
-52 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1063:14)
-52 verbose stack     at emitOne (events.js:82:20)
-52 verbose stack     at Request.emit (events.js:169:7)
-52 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1009:12)
-53 verbose statusCode 403
-54 verbose pkgid patch
-55 verbose cwd /Users/aneves/Sites/react-flyout
-56 error Darwin 14.5.0
-57 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish" "patch"
-58 error node v5.0.0
-59 error npm  v3.3.6
-60 error code E403
-61 error You do not have permission to publish 'patch'. Are you logged in as the correct user? : patch
-62 error If you need help, you may report this error at:
-62 error     <https://github.com/npm/npm/issues>
-63 verbose exit [ 1, true ]
+4 info git [ 'status', '--porcelain' ]
+5 verbose stack Error: Git working directory not clean.
+5 verbose stack M npm-debug.log
+5 verbose stack     at /usr/local/lib/node_modules/npm/lib/version.js:172:21
+5 verbose stack     at ChildProcess.exithandler (child_process.js:194:7)
+5 verbose stack     at emitTwo (events.js:87:13)
+5 verbose stack     at ChildProcess.emit (events.js:172:7)
+5 verbose stack     at maybeClose (internal/child_process.js:818:16)
+5 verbose stack     at Socket.<anonymous> (internal/child_process.js:319:11)
+5 verbose stack     at emitOne (events.js:77:13)
+5 verbose stack     at Socket.emit (events.js:169:7)
+5 verbose stack     at Pipe._onclose (net.js:469:12)
+6 verbose cwd /Users/aneves/Sites/react-flyout
+7 error Darwin 14.5.0
+8 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "version" "1.0.3"
+9 error node v5.0.0
+10 error npm  v3.3.6
+11 error Git working directory not clean.
+11 error M npm-debug.log
+12 error If you need help, you may report this error at:
+12 error     <https://github.com/npm/npm/issues>
+13 verbose exit [ 1, true ]
