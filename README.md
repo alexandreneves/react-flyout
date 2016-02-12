@@ -45,7 +45,7 @@ react-flyout is composed by 3 files
 
 ## USAGE
 
-Import/Extend the FlyoutWrapper to access the open/close methods. **I recommend extending it by creating your own Flyout component** unless all of your Flyouts and respective triggers are contained in the same components in which case importing the FlyoutWrapper and calling the available methods when needed will suffice. If you happen to need to render a Flyout and its respective trigger from different components you'll be better served creating your own Flyout component and extending it with the FlyoutWrapper. In this component you'll then listen to the dispached events to open or close the Flyout.
+Create your own Flyout component in your project and extend it with the FlyoutWrapper to access the open/close methods. In this component you'll use your projects event system to listen to the open/close events.
 
 ```javascript
 import FlyoutWrapper from '';
