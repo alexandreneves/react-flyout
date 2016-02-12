@@ -1,0 +1,87 @@
+.flyout-clearfix:before, .flyout.flyout--dropdown ul li:before, .flyout-clearfix:after, .flyout.flyout--dropdown ul li:after {
+  content: "";
+  display: table; }
+
+.flyout-clearfix:after, .flyout.flyout--dropdown ul li:after {
+  clear: both; }
+
+.has-flyout--fixed {
+  background: #313941;
+  position: fixed;
+  overflow: hidden; }
+
+.has-flyout {
+  position: relative;
+  display: inline-block; }
+
+.flyout {
+  z-index: 7000;
+  position: absolute;
+  box-sizing: border-box;
+  padding: 1px;
+  font-size: 0.8rem;
+  text-align: left;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.075); }
+  .flyout .flyout__wrapper {
+    overflow: auto;
+    overflow-x: hidden;
+    height: auto; }
+  .flyout.flyout--light {
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #313941; }
+  .flyout.flyout--dark {
+    background: #313941;
+    color: #fff; }
+  .flyout.flyout--fixed {
+    z-index: 7000;
+    position: fixed;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important; }
+    .flyout.flyout--fixed .flyout__wrapper {
+      height: calc(100% - 45px);
+      max-height: none !important; }
+  .flyout.flyout--menu .flyout__wrapper {
+    padding: 10px 14px; }
+  .flyout.flyout--dropdown {
+    z-index: 5000;
+    margin: 1px 0;
+    font-size: 0.8rem;
+    border-radius: 3px; }
+    .flyout.flyout--dropdown .flyout__wrapper {
+      padding: 0 0.7rem; }
+    .flyout.flyout--dropdown ul {
+      margin: 0; }
+      .flyout.flyout--dropdown ul li {
+        width: 100%;
+        margin: 0;
+        padding: 0.5rem 0;
+        font-size: 0.9rem;
+        border-bottom: 1px solid #ddd; }
+        .flyout.flyout--dropdown ul li:last-child {
+          border-bottom: none; }
+        .flyout.flyout--dropdown ul li a {
+          display: block; }
+          .flyout.flyout--dropdown ul li a p {
+            margin: 0;
+            color: #313941;
+            font-size: 0.8rem;
+            line-height: 1.4; }
+    .flyout.flyout--dropdown.flyout--dropdown-has-icons-left ul li a {
+      position: relative;
+      padding-left: 25px; }
+      .flyout.flyout--dropdown.flyout--dropdown-has-icons-left ul li a > i {
+        font-size: 18px; }
+        .flyout.flyout--dropdown.flyout--dropdown-has-icons-left ul li a > i:first-child {
+          position: absolute;
+          top: 1px;
+          left: -5px;
+          width: 25px;
+          margin-right: 5px;
+          text-align: center; }
+    .flyout.flyout--dropdown.flyout--dropdown-has-icons-right ul li a > i {
+      font-size: 18px; }
+      .flyout.flyout--dropdown.flyout--dropdown-has-icons-right ul li a > i.check {
+        float: right;
+        margin-left: 15px; }
