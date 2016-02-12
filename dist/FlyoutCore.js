@@ -28,8 +28,6 @@ var FlyoutCore = function (_React$Component) {
     function FlyoutCore(props) {
         _classCallCheck(this, FlyoutCore);
 
-        // globals
-
         var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(FlyoutCore).call(this, props));
 
         _this.body = document.querySelector('body');
@@ -151,21 +149,20 @@ var FlyoutCore = function (_React$Component) {
                 dom.style.right = alignments[1]['left'];
             }
 
-            if (this.props.HOCProps.options.fixed) {
-                this._verifyPosition();
-            }
+            this._verifyPosition();
         }
     }, {
         key: '_verifyPosition',
         value: function _verifyPosition() {
+            if (!this.props.HOCProps.options.fixed) return false;
+            // console.info('flyout - _verifyPosition');
+
             // if a flyout as a parent with position fixed
             // the only way to show all the information is to contain the flyout inside the window
             // to achieve this we need:
             // 1 - make sure the flyout's contained in the window
             // 2 - if not, determine the best alignment
             // 3 - inside scroll will take care of the rest
-
-            // console.info('flyout - _verifyPosition');
 
             var windowHeight = window.innerHeight;
 
@@ -182,16 +179,10 @@ var FlyoutCore = function (_React$Component) {
 
             var alignment = this._getAlignment();
 
-            // if true, we have more space above
-            // this var is only necessary if we do need more space
             var moreSpaceAbove = triggerOffsetTop + triggerHeight / 2 > windowHeight / 2;
             var getMaxHeightOffsetPosition = moreSpaceAbove ? 'top' : 'bottom';
 
             var newFlyoutMaxHeight = undefined;
-
-            /*
-             * let's check if there's enough space for the chosen alignment
-             */
 
             // first we'll check if we need more space
             if (flyoutHeight + flyoutOffsetTop + this._getMaxHeightOffset(getMaxHeightOffsetPosition) > windowHeight) {
@@ -221,7 +212,7 @@ var FlyoutCore = function (_React$Component) {
                     // check the max-height possible
                     var _newFlyoutMaxHeight = windowHeight - flyoutOffsetTop - this._getMaxHeightOffset(getMaxHeightOffsetPosition);
 
-                    // verify it agains a possible setted max-height
+                    // verify it against a possible setted max-height
                     if (flyoutMaxHeight !== 0 && _newFlyoutMaxHeight >= flyoutMaxHeight) return false;
 
                     // removing min-height for extreme cases
@@ -288,7 +279,6 @@ var FlyoutCore = function (_React$Component) {
             var width = window.innerWidth;
 
             if (window.innerWidth < this.mediaQueries.mediumUp) {
-                // must include scrollbar width
                 this._classAdd(flyout, 'flyout--fixed');
                 this._bodyClassSet();
             } else {
@@ -342,8 +332,8 @@ var FlyoutCore = function (_React$Component) {
         key: '_scrollPositionSave',
         value: function _scrollPositionSave() {
             // console.info('flyout - _saveScrollPosition');
-            // we need to use the trigger active class because
-            // the open event of the new flyouts runs before the close event of the previous flyout
+            // triggers active class must be use since the open event of the new flyouts
+            // runs before the close event of the previous flyout
             if (document.querySelectorAll('.' + this.classes.trigger).length) {
                 this.body.setAttribute('data-flyoutBodyScrollPosition', window.pageYOffset);
             }

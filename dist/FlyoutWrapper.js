@@ -14,7 +14,7 @@ var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _FlyoutCore = require('app/components/shared/flyout/FlyoutCore');
+var _FlyoutCore = require('./FlyoutCore');
 
 var _FlyoutCore2 = _interopRequireDefault(_FlyoutCore);
 
