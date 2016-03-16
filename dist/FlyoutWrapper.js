@@ -93,11 +93,26 @@ var FlyoutWrapper = function (_React$Component) {
 
             // check if click was outside or inside the flyout
             if (dom.contains(e.target)) {
-                // to-do: bubbling check
-                if (e.target.tagName.toLowerCase() === 'a') this.close();
+                if (this._closest(e.target, 'tag', 'a')) this.close();
             } else {
                 this.close();
             }
+        }
+    }, {
+        key: '_closest',
+        value: function _closest(el, findBy, findValue) {
+            if (!el) return false;
+
+            var value = void 0;
+
+            if (el.tagName.toLowerCase() === 'body') return null;
+
+            if (findBy === 'class') value = el.className;
+            if (findBy === 'id') value = el.id;
+            if (findBy === 'tag') value = el.tagName.toLowerCase();
+
+            if (value === findValue) return el; // found
+            return this._closest(el.parentNode, findBy, findValue); // not found, recurse
         }
     }, {
         key: 'open',

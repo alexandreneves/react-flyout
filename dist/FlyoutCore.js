@@ -182,7 +182,7 @@ var FlyoutCore = function (_React$Component) {
             var moreSpaceAbove = triggerOffsetTop + triggerHeight / 2 > windowHeight / 2;
             var getMaxHeightOffsetPosition = moreSpaceAbove ? 'top' : 'bottom';
 
-            var newFlyoutMaxHeight = undefined;
+            var newFlyoutMaxHeight = void 0;
 
             // first we'll check if we need more space
             if (flyoutHeight + flyoutOffsetTop + this._getMaxHeightOffset(getMaxHeightOffsetPosition) > windowHeight) {
