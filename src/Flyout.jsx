@@ -3,7 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class FlyoutCore extends React.Component {
+class Flyout extends React.Component {
     constructor(props) {
         super(props);
 
@@ -20,6 +20,8 @@ class FlyoutCore extends React.Component {
     }
 
     componentDidMount() {
+        // console.info('flyout - componentDidMount');
+
         // events
         this._resizeEventAdd();
 
@@ -40,7 +42,14 @@ class FlyoutCore extends React.Component {
         this._sizeHandler();
     }
 
+    componentDidUpdate() {
+        // console.info('flyout - componentDidUpdate');
+        this._setPosition();
+    }
+
     componentWillUnmount() {
+        // console.info('flyout - componentWillUnmount');
+
         // events
         this._resizeEventRemove();
 
@@ -56,21 +65,29 @@ class FlyoutCore extends React.Component {
     }
 
     render() {
+        // console.info('flyout - render');
+
         let flyout = null;
-        let classes = 'flyout';
+        let classes = [];
 
         // classes
-        classes += this.props.HOCProps.options.type ? ' flyout--'+ this.props.HOCProps.options.type : ' flyout--dropdown';
-        classes += this.props.HOCProps.options.theme ? ' flyout--'+ this.props.HOCProps.options.theme : ' flyout--light';
-        if (this.props.HOCProps.options.dropdownIconsLeft) classes += ' flyout--dropdown-has-icons-left';
-        if (this.props.HOCProps.options.dropdownIconsRight) classes += ' flyout--dropdown-has-icons-right';
-        classes += ' '+ this.props.HOCProps.id;
+        classes.push('flyout');
+        classes.push(this.props.options.type ? 'flyout--'+ this.props.options.type : 'flyout--dropdown');
+        classes.push(this.props.options.theme ? 'flyout--'+ this.props.options.theme : 'flyout--light');
+        if (this.props.options.dropdownIconsLeft) classes.push('flyout--dropdown-has-icons-left');
+        if (this.props.options.dropdownIconsRight) classes.push('flyout--dropdown-has-icons-right');
+        classes.push('flyout--'+ this._getAlignment().join('-'));
+        classes.push(this.props.id);
+
+        // flyout tooltip arrow
+        const arrow = this.props.options.type === 'tooltip' ? <span className="flyout__arrow" /> : null;
 
         return (
-            <div id={this.props.HOCProps.id} className={classes}>
+            <div id={this.props.id} className={classes.join(' ')}>
                 <div className="flyout__wrapper">
-                    {this.props.HOCProps.children}
+                    {this.props.children}
                 </div>
+                {arrow}
             </div>
         );
     }
@@ -78,42 +95,49 @@ class FlyoutCore extends React.Component {
     _setPosition(alignment) {
         // console.info('flyout - _setPosition');
 
-        let dom = ReactDOM.findDOMNode(this);
-        let parent = dom.parentNode;
+        const dom = ReactDOM.findDOMNode(this);
+        const parent = dom.parentNode;
+        const margin = this.props.options.type !== 'tooltip' ? 1 : 6;
         let alignments = [];
 
         if (typeof alignment === 'undefined') alignment = this._getAlignment();
 
         alignments[0] = {
-            'top': 0,
-            'right': parent.offsetWidth + 'px',
-            'bottom': parent.offsetHeight + 'px',
-            'left': 0
+            'top': - dom.offsetHeight - margin + 'px',
+            'right': parent.offsetWidth + margin + 'px',
+            'bottom': parent.offsetHeight + margin + 'px',
+            'left': - dom.offsetWidth - margin + 'px'
         }
 
         alignments[1] = {
-            'top': 0,
+            'top': - dom.offsetHeight + parent.offsetHeight + 'px',
             'right': 0,
             'bottom': 0,
             'left': 0
         }
 
+        // reset
+        dom.style.top = '';
+        dom.style.right = '';
+        dom.style.bottom = '';
+        dom.style.left = '';
+
         if (alignment[0] === 'top') {
-            console.error('flyout - alignment not supported yet');
+            dom.style.top = alignments[0]['top'];
         } else if (alignment[0] === 'right') {
             dom.style.left = alignments[0]['right'];
         } else if (alignment[0] === 'bottom') {
             dom.style.top = alignments[0]['bottom'];
         } else if (alignment[0] === 'left') {
-            console.error('flyout - alignment not supported yet');
+            dom.style.left = alignments[0]['left'];
         }
 
         if (alignment[1] === 'top') {
-            console.error('flyout - alignment not supported yet');
+            dom.style.top = alignments[1]['top'];
         } else if (alignment[1] === 'right') {
             dom.style.left = alignments[1]['right'];
         } else if (alignment[1] === 'bottom') {
-            dom.style.top = alignments[1]['top'];
+            dom.style.top = alignments[1]['bottom'];
         } else if (alignment[1] === 'left') {
             dom.style.right = alignments[1]['left'];
         }
@@ -122,7 +146,7 @@ class FlyoutCore extends React.Component {
     }
 
     _verifyPosition() {
-        if (!this.props.HOCProps.options.fixed) return false;
+        if (!this.props.options.fixed) return false;
         // console.info('flyout - _verifyPosition');
 
         // if a flyout as a parent with position fixed
@@ -138,8 +162,8 @@ class FlyoutCore extends React.Component {
         let triggerHeight = parseInt(trigger.offsetHeight);
         let triggerOffsetTop = parseInt(this._getOffset(trigger)['top']);
 
-        let flyout = document.querySelector('#'+ this.props.HOCProps.id);
-        let flyoutContent = document.querySelector('#'+ this.props.HOCProps.id + '> div'); // todo: fix me
+        let flyout = document.querySelector('#'+ this.props.id);
+        let flyoutContent = document.querySelector('#'+ this.props.id + '> div'); // todo: fix me
         let flyoutHeight = parseInt(flyout.offsetHeight);
         let flyoutOffsetTop = parseInt(this._getOffset(flyout)['top']);
         let flyoutMinHeight = parseInt(flyout.style.minHeight) | 0;
@@ -197,7 +221,7 @@ class FlyoutCore extends React.Component {
         // console.info('flyout - _setMaxHeight');
         
         let windowHeight = window.innerHeight;
-        let flyoutContent = document.querySelector('#'+ this.props.HOCProps.id +' > div');
+        let flyoutContent = document.querySelector('#'+ this.props.id +' > div');
 
         let maxHeight = parseInt(windowHeight / 1.20);
 
@@ -208,7 +232,7 @@ class FlyoutCore extends React.Component {
         // console.info('flyout - _mutationObserve');
 
         let MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
-        let flyout = document.querySelector('#'+ this.props.HOCProps.id);
+        let flyout = document.querySelector('#'+ this.props.id);
 
         this.mutation = new MutationObserver((mutations) => {
             this._mutationObserved();
@@ -231,10 +255,10 @@ class FlyoutCore extends React.Component {
     }
 
     _sizeHandler() {
-        if (!this.props.HOCProps.options.mobile) return false;
+        if (!this.props.options.mobile) return false;
         // console.info('flyout - _sizeHandler');
 
-        let flyout = document.querySelector('#'+ this.props.HOCProps.id);
+        let flyout = document.querySelector('#'+ this.props.id);
         let width = window.innerWidth;
 
 
@@ -248,7 +272,7 @@ class FlyoutCore extends React.Component {
     }
 
     _resizeEventAdd() {
-        if (!this.props.HOCProps.options.mobile) return false;
+        if (!this.props.options.mobile) return false;
         setTimeout(() => {
             // console.info('flyout - _resizeEventAdd');
             window.addEventListener('resize', this._sizeHandler);
@@ -256,7 +280,7 @@ class FlyoutCore extends React.Component {
     }
 
     _resizeEventRemove() {
-        if (!this.props.HOCProps.options.mobile) return false;
+        if (!this.props.options.mobile) return false;
         // console.info('flyout - _resizeEventRemove');
         window.removeEventListener('resize', this._sizeHandler);
     }
@@ -300,7 +324,7 @@ class FlyoutCore extends React.Component {
 
     _getAlignment() {
         // console.info('flyout - _getAlignment');
-        let alignment = this.props.HOCProps.options.align.split(' ');
+        let alignment = this.props.options.align.split(' ');
         return [alignment[0], alignment[1]];
     }
 
@@ -315,7 +339,7 @@ class FlyoutCore extends React.Component {
         let triggersLength = triggers.length;
 
         for (let i = 0; i < triggersLength; i++) {
-            if (triggers[i].getAttribute('data-flyout-id') === this.props.HOCProps.id) {
+            if (triggers[i].getAttribute('data-flyout-id') === this.props.id) {
                 return triggers[i];
             }
         }
@@ -358,4 +382,4 @@ class FlyoutCore extends React.Component {
     }
 };
 
-export default FlyoutCore;
+export default Flyout;

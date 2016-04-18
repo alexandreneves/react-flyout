@@ -1,63 +1,59 @@
- 'use strict';
+'use strict';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import FlyoutCore from './FlyoutCore';
+import Flyout from './Flyout';
 
 class FlyoutWrapper extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            open: false
-        };
 
         // pre-binding
         this._handleClick = this._handleClick.bind(this);
     }
 
-    componentDidUpdate() {
-        if (this.state.open) {
-            this._setClickEvent();
-        } else {
-            this._unsetClickEvent();
-        }
+    componentDidUpdate(prevProps, prevState) {
+        // console.info('flyout - componentDidUpdate');
+        if (this.props.options.type === 'tooltip') return false;
+        if (!this.props.onWindowClick) return false;
+        if (prevProps.open === this.props.open) return false;
+        this.props.open ? this._setClickEvent() : this._unsetClickEvent();
     }
 
     componentWillUnmount() {
+        // console.info('flyout - componentWillUnmount');
         this._unsetClickEvent();
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        if (this.state.open !== nextState.open) return true;
-        return false;
-    }
-
     render() {
-        if (!this.state.open) return null;
-        return <FlyoutCore HOCProps={this.props} mediaQueries={this.mediaQueries} />;
+        // console.info('flyout - render');
+        if (!this.props.open) return null;
+        return <Flyout {...this.props} mediaQueries={this.mediaQueries} />;
     }
 
     _setClickEvent() {
-        // console.info('Flyout - _setClickEvent');
+        // console.info('flyout - _setClickEvent');
         setTimeout(() => {
             window.addEventListener('click', this._handleClick);
         }, 0);
     }
 
     _unsetClickEvent() {
-        // console.info('Flyout - _unsetClickEvent');
+        // console.info('flyout - _unsetClickEvent');
         window.removeEventListener('click', this._handleClick);
     }
 
     _handleClick(e) {
-        // console.log('Flyout - _handleClick');
+        // console.log('flyout - _handleClick');
         let dom = ReactDOM.findDOMNode(this);
 
         // check if click was outside or inside the flyout
-        if (dom.contains(e.target)) {
-            if (this._closest(e.target, 'tag', 'a')) this.close();
-        } else {
-            this.close();
+        if (dom) {
+            if (dom.contains(e.target)) {
+                if (this._closest(e.target, 'tag', 'a')) this.props.onWindowClick();
+            } else {
+                this.props.onWindowClick();
+            }
         }
     }
 
@@ -75,23 +71,17 @@ class FlyoutWrapper extends React.Component {
         if (value === findValue) return el; // found
         return this._closest(el.parentNode, findBy, findValue); // not found, recurse
     }
-
-    open() {
-        this.setState({open: true});
-    }
-
-    close() {
-        this.setState({open: false});
-    }
 }
 
 FlyoutWrapper.propTypes = {
     id: React.PropTypes.string.isRequired,
+    open: React.PropTypes.bool.isRequired,
     options: React.PropTypes.object
 };
 
 FlyoutWrapper.defaultProps = {
     id: null,
+    open: false,
     options: null
 };
 
