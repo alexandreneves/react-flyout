@@ -31,9 +31,8 @@ $ npm i @aneves/react-modal
 
 ## EXAMPLE
 
-Checkout the example (Redux [github.io/alexandreneves/react-flyout](https://alexandreneves.github.io/react-flyout)).
-If requested I can provide a [Alt](http://alt.js.org/) example.
-
+[Checkout the example](https://alexandreneves.github.io/react-flyout) (Redux).
+If requested I can provide a Alt example.
 
 
 
