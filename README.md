@@ -24,7 +24,7 @@ Flyout React Component
 ## INSTALLATION
 
 ```sh
---$ npm i @aneves/react-modal-- **SOON**
+$ npm i @aneves/react-modal
 ```
 
 
