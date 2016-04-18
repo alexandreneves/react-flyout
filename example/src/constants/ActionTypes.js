@@ -1,0 +1,2 @@
+export const FLYOUT_TOGGLE = 'FLYOUT_TOGGLE';
+export const FLYOUT_OPTIONS = 'FLYOUT_OPTIONS';

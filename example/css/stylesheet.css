@@ -1,0 +1,82 @@
+@import url("./normalize.css");
+@import url("./skeleton.css");
+@import url("../../dist/flyout.css");
+
+body {
+    min-width: 280px;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+body > img {
+    border-radius: 20px;
+    transform: rotate(-5deg);
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+}
+
+.examples {
+    margin: 50px 0 175px;
+}
+
+button {
+    margin: 0;
+    padding: 0 1.5rem;
+}
+
+.flyout-foobar2 {
+    width: 250px;
+}
+
+.flyout-foobar3 p {
+    margin: 0;
+}
+
+button + button, .has-flyout + .has-flyout { margin-bottom: 0.5rem; }
+button + button, .has-flyout + .has-flyout { margin-left: 0.5rem; }
+
+.alignto {
+    overflow: hidden;
+    width: 168px;
+    margin: 0 auto 15px;
+}
+
+.alignto > div {
+    overflow: hidden;
+}
+
+.alignto > div > div {
+    float: left;
+    width: 40px;
+    height: 40px;
+}
+
+.alignto .alignto__clickable {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 2.5rem;
+    border-radius: 4px;
+}
+
+.alignto__clickable:hover {
+    background: #33C3F0;
+    color: white;
+}
+
+.alignto__clickable.alignto__clickable--topright i { transform: rotate(45deg); }
+.alignto__clickable.alignto__clickable--topleft i { transform: rotate(-45deg); }
+.alignto__clickable.alignto__clickable--righttop i { transform: rotate(-45deg); }
+.alignto__clickable.alignto__clickable--rightbottom i { transform: rotate(45deg); }
+.alignto__clickable.alignto__clickable--bottomright i { transform: rotate(-45deg); }
+.alignto__clickable.alignto__clickable--bottomleft i { transform: rotate(45deg); }
+.alignto__clickable.alignto__clickable--lefttop i { transform: rotate(45deg); }
+.alignto__clickable.alignto__clickable--leftbottom i { transform: rotate(-45deg); }
