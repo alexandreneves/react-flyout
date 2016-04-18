@@ -24,7 +24,7 @@ Flyout React Component
 ## INSTALLATION
 
 ```sh
-$ npm i @aneves/react-modal
+--$ npm i @aneves/react-modal-- **SOON**
 ```
 
 
@@ -108,7 +108,7 @@ $f_border_radius: (...);
 
 // import original styles
 
-@import "react-flyout/flyout";
+@import '~react-flyout/dist/flyout';
 
 // define your styles
 
