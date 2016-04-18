@@ -6,7 +6,7 @@ Flyout React Component
 + pragmatic and predictable behaviours
 + pre-defined styles: dropdown (default), tooltip, topbar menu
 + pre-defined themes: light (default) and dark
-+ pre-defined styles for beautiful dropdown menu (<ul>)
++ pre-defined styles for beautiful dropdown menu (ul)
 + customizable
 
 
