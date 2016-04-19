@@ -67,23 +67,11 @@ class Flyout extends React.Component {
     render() {
         // console.info('flyout - render');
 
-        let flyout = null;
-        let classes = [];
-
-        // classes
-        classes.push('flyout');
-        classes.push(this.props.options.type ? 'flyout--'+ this.props.options.type : 'flyout--dropdown');
-        classes.push(this.props.options.theme ? 'flyout--'+ this.props.options.theme : 'flyout--light');
-        if (this.props.options.dropdownIconsLeft) classes.push('flyout--dropdown-has-icons-left');
-        if (this.props.options.dropdownIconsRight) classes.push('flyout--dropdown-has-icons-right');
-        classes.push('flyout--'+ this._getAlignment().join('-'));
-        classes.push(this.props.id);
-
-        // flyout tooltip arrow
+        const classes = this._getClasses();
         const arrow = this.props.options.type === 'tooltip' ? <span className="flyout__arrow" /> : null;
 
         return (
-            <div id={this.props.id} className={classes.join(' ')}>
+            <div id={this.props.id} className={classes}>
                 <div className="flyout__wrapper">
                     {this.props.children}
                 </div>
@@ -324,8 +312,16 @@ class Flyout extends React.Component {
 
     _getAlignment() {
         // console.info('flyout - _getAlignment');
-        let alignment = this.props.options.align.split(' ');
-        return [alignment[0], alignment[1]];
+        const defaults = this.props.options.type === 'tooltip' ? 'top right' : 'bottom right';
+        const sep = ' ';
+        let alignment = this.props.options.align;
+
+        if (typeof alignment === 'undefined') {
+            return defaults.split(sep);
+        } else {
+            alignment = this.props.options.align.split(sep);
+            return alignment.length === 2 ? alignment : defaults.split(sep);
+        }
     }
 
     _getMaxHeightOffset(position) {
@@ -369,6 +365,26 @@ class Flyout extends React.Component {
             top: rect.top,
             left: rect.left
         };
+    }
+
+    _getClasses() {
+        const classes = [];
+
+        classes.push('flyout');
+        classes.push(this.props.options.type ? 'flyout--'+ this.props.options.type : 'flyout--dropdown');
+        classes.push('flyout--'+ this._getAlignment().join('-'));
+
+        if (this.props.options.dropdownIconsLeft) classes.push('flyout--dropdown-has-icons-left');
+        if (this.props.options.dropdownIconsRight) classes.push('flyout--dropdown-has-icons-right');
+        if (this.props.options.theme) {
+            classes.push('flyout--'+ this.props.options.theme);
+        } else {
+            classes.push(this.props.options.type === 'tooltip' ? 'flyout--dark' : 'flyout--light');
+        }
+
+        classes.push(this.props.id);
+
+        return classes.join(' ');
     }
 
     _classAdd(el, elClass) {
