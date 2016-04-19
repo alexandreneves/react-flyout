@@ -96,24 +96,12 @@ var Flyout = function (_React$Component) {
         value: function render() {
             // console.info('flyout - render');
 
-            var flyout = null;
-            var classes = [];
-
-            // classes
-            classes.push('flyout');
-            classes.push(this.props.options.type ? 'flyout--' + this.props.options.type : 'flyout--dropdown');
-            classes.push(this.props.options.theme ? 'flyout--' + this.props.options.theme : 'flyout--light');
-            if (this.props.options.dropdownIconsLeft) classes.push('flyout--dropdown-has-icons-left');
-            if (this.props.options.dropdownIconsRight) classes.push('flyout--dropdown-has-icons-right');
-            classes.push('flyout--' + this._getAlignment().join('-'));
-            classes.push(this.props.id);
-
-            // flyout tooltip arrow
+            var classes = this._getClasses();
             var arrow = this.props.options.type === 'tooltip' ? _react2.default.createElement('span', { className: 'flyout__arrow' }) : null;
 
             return _react2.default.createElement(
                 'div',
-                { id: this.props.id, className: classes.join(' ') },
+                { id: this.props.id, className: classes },
                 _react2.default.createElement(
                     'div',
                     { className: 'flyout__wrapper' },
@@ -378,8 +366,16 @@ var Flyout = function (_React$Component) {
         key: '_getAlignment',
         value: function _getAlignment() {
             // console.info('flyout - _getAlignment');
-            var alignment = this.props.options.align.split(' ');
-            return [alignment[0], alignment[1]];
+            var defaults = this.props.options.type === 'tooltip' ? 'top right' : 'bottom right';
+            var sep = ' ';
+            var alignment = this.props.options.align;
+
+            if (typeof alignment === 'undefined') {
+                return defaults.split(sep);
+            } else {
+                alignment = this.props.options.align.split(sep);
+                return alignment.length === 2 ? alignment : defaults.split(sep);
+            }
         }
     }, {
         key: '_getMaxHeightOffset',
@@ -427,6 +423,27 @@ var Flyout = function (_React$Component) {
                 top: rect.top,
                 left: rect.left
             };
+        }
+    }, {
+        key: '_getClasses',
+        value: function _getClasses() {
+            var classes = [];
+
+            classes.push('flyout');
+            classes.push(this.props.options.type ? 'flyout--' + this.props.options.type : 'flyout--dropdown');
+            classes.push('flyout--' + this._getAlignment().join('-'));
+
+            if (this.props.options.dropdownIconsLeft) classes.push('flyout--dropdown-has-icons-left');
+            if (this.props.options.dropdownIconsRight) classes.push('flyout--dropdown-has-icons-right');
+            if (this.props.options.theme) {
+                classes.push('flyout--' + this.props.options.theme);
+            } else {
+                classes.push(this.props.options.type === 'tooltip' ? 'flyout--dark' : 'flyout--light');
+            }
+
+            classes.push(this.props.id);
+
+            return classes.join(' ');
         }
     }, {
         key: '_classAdd',
