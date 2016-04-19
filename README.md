@@ -4,20 +4,27 @@ Flyout React Component
 
 + easy to use
 + pragmatic and predictable behaviours
-+ pre-defined styles: dropdown (default), tooltip, topbar menu
-+ pre-defined themes: light (default) and dark
-+ pre-defined styles for beautiful dropdown menu (ul)
++ pre-defined types: dropdown, tooltip, topbar menu
++ pre-defined themes: light and dark
++ pre-defined styles for beautiful dropdown menus
 + customizable
 
 
 
 ## TABLE OF CONTENTS
 
-+ [installation](#installation)
 + [example](#example)
++ [installation](#installation)
 + [how it works](#how-it-works)
 + [usage](#usage)
 + [customization](#customization)
+
+
+
+## EXAMPLE
+
+[Checkout the example](https://alexandreneves.github.io/react-flyout) (Redux).
+If requested I can provide an Alt example.
 
 
 
@@ -26,13 +33,6 @@ Flyout React Component
 ```sh
 $ npm i @aneves/react-modal
 ```
-
-
-
-## EXAMPLE
-
-[Checkout the example](https://alexandreneves.github.io/react-flyout) (Redux).
-If requested I can provide a Alt example.
 
 
 
@@ -49,7 +49,31 @@ react-flyout is composed by 3 files
 + **flyout.css**
     + well... you know... CSS
 
-**FlyoutWrapper** is optional, you can import **Flyout** directly and deal with its renderization by yourself.
+
+### Why not dumb?
+
+The problem with these kind of componentes (dropdowns, modals, ...) is the need to handle window/body clicks in order to close. Why is this a problem? The lack of state (in this case) and the immutability of the props make it "impossible" to close itself.
+
+That's why I provide the **FlyoutWrapper** which adds and removes the window click eventListener when needed and accepts a method through the props that gets executed by the handler. This method can in turn close the flyout by updating the props sent to the wrapper.
+
+Keep in mind that the **FlyoutWrapper** is optional, you can import the **Flyout** directly and deal with its renderization by yourself.
+
+
+
+## USAGE
+
+The usage will depend on your projects architecture but will be something along these lines:
+
+
+```html
+<div className="has-flyout">
+    <button data-flyout-id="flyout-example"
+            onClick={e => {dispatch(flyoutToggle('flyout-example'))}}>FlyoutToggle</button>
+    <Flyout id="flyout-example" options={{align: 'top right'}}>
+        (...)
+    </Flyout>
+</div>
+```
 
 
 
@@ -60,11 +84,11 @@ react-flyout is composed by 3 files
 You can pass various options as an object in the Flyout props `<Flyout options={{}}>`
 
 + **align**: (string)
-    *   `bottom left`: the Flyout will be aligned to the bottom of the trigger and will grow from right (of the trigger) to the left
-    *   `right bottom`: the Flyout will be aligned to the right of the trigger and will grow from top (of the trigger) to bottom
-    *   ...
+    *   `bottom right`: (default)
+    *   `top right`: (default for tooltips)
+    *   example: `bottom right` will align the flyout to the bottom of the trigger and expand from left to right
 + **type**: (string) `dropdown` (default) / `menu` / `tooltip`
-+ **theme**: (string) `light` (default) / `dark`
++ **theme**: (string) `light` (default) / `dark` (default for tooltips)
 + **fixed**: (bool) set as `true` if the Flyout is contained withing a fixed element
 + **mobile**: (bool) when `true` the Flyout will open full width/height bellow the medium media query
 + **dropdownIconsLeft**: set as `true` if `type: dropdown` to style (left) icons on dropdown lists
