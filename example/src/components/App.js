@@ -10,20 +10,16 @@ require("../../css/stylesheet.css");
 let App = ({dispatch}) => {
     const flyoutOptions1 = {
         type: 'dropdown',
-        align: 'bottom right',
         dropdownIconsLeft: true,
         dropdownIconsRight: true
     };
 
     const flyoutOptions2 = {
-        align: 'bottom left',
         theme: 'dark'
     };
 
     const flyoutOptions3 = {
-        type: 'tooltip',
-        align: 'top left',
-        theme: 'dark'
+        type: 'tooltip'
     };
 
     const flyoutOps = function(opts, e) {
