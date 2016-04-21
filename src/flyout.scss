@@ -44,6 +44,7 @@ $f_border_radius: 3px !default;
     z-index: $f_z_index_flyout;
     position: absolute;
     box-sizing: border-box;
+    margin-bottom: 25px;
     padding: 1px; // necessary to give some space to the system scrollbar
     font-size: $f_font_size;
     text-align: left;
