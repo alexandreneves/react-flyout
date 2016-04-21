@@ -3,7 +3,9 @@
 $f_z_index_flyout: 7000 !default;
 $f_z_index_flyout--dropdown: 5000 !default;
 
-$f_font_size: 1.4rem !default;
+$f_font_size: 0.9rem !default;
+$f_font_size_tooltip: 0.8rem !default;
+$f_font_size_icon: 18px !default;
 
 $f_color_light: #fff !default;
 $f_color_dark: #313941 !default;
@@ -33,7 +35,7 @@ $f_border_radius: 3px !default;
     overflow: hidden;
 }
 
-.has-flyout {
+.has-flyout { // flyout and button container
     position: relative;
     display: inline-block;
 }
@@ -43,12 +45,18 @@ $f_border_radius: 3px !default;
 .flyout {
     z-index: $f_z_index_flyout;
     position: absolute;
+
     box-sizing: border-box;
+
     margin-bottom: 25px;
-    padding: 1px; // necessary to give some space to the system scrollbar
-    font-size: $f_font_size;
-    text-align: left;
+    padding: 1px; // to give some space to the system scrollbar
+
+    border-radius: $f_border_radius;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.075);
+
+    text-align: left;
+    font-size: $f_font_size;
+    line-height: 1.4;
 
     // WRAPPER
     .flyout__wrapper {
@@ -68,7 +76,6 @@ $f_border_radius: 3px !default;
     // THEME DARK
     &.flyout--dark {
         background: $f_color_dark;
-        border-radius: $f_border_radius;
         color: $f_color_light;
     }
 
@@ -87,7 +94,9 @@ $f_border_radius: 3px !default;
     }
 
     // TYPE MENU
-    &.flyout--menu { }
+    &.flyout--menu {
+        border-radius: 0;
+    }
 
     // TYPE TOOLTIP
     &.flyout--tooltip {
@@ -97,8 +106,7 @@ $f_border_radius: 3px !default;
             padding: 8px;
 
             p {
-                text-align: center;
-                font-size: 1.1rem;
+                font-size: $f_font_size_tooltip;
                 line-height: 1.2;
             }
         }
@@ -145,11 +153,9 @@ $f_border_radius: 3px !default;
     // TYPE DROPDOWN
     &.flyout--dropdown {
         z-index: $f_z_index_flyout--dropdown;
-        border-radius: $f_border_radius;
 
         ul {
             list-style: none;
-
             margin: 0;
             padding: 0;
 
@@ -159,7 +165,6 @@ $f_border_radius: 3px !default;
                 width: 100%;
                 margin: 0;
                 padding: 0.7rem 0;
-                font-size: $f_font_size;
                 border-bottom: 1px solid $f_color_border;
 
                 &:first-child {
@@ -177,8 +182,6 @@ $f_border_radius: 3px !default;
                     p {
                         margin: 0;
                         color: $f_color_dark;
-                        font-size: $f_font_size;
-                        line-height: 1.4;
                     }
                 }
             }
@@ -190,7 +193,7 @@ $f_border_radius: 3px !default;
                 position: relative;
 
                 > i {
-                    font-size: 18px;
+                    font-size: $f_font_size_icon;
 
                     &:first-child,
                     &:last-child {
