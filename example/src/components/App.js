@@ -20,7 +20,8 @@ let App = ({dispatch}) => {
     };
 
     const flyoutOptions3 = {
-        type: 'tooltip'
+        type: 'tooltip',
+        align: 'top left'
     };
 
     const flyoutOps = function(opts, e) {
@@ -31,7 +32,38 @@ let App = ({dispatch}) => {
     return (
         <div>
             <div className="examples">
-                <h3>Example</h3>
+                <h3>examples</h3>
+                <div className="has-flyout">
+                    <button type="button" className="button-primary" data-flyout-id="flyout-foobar1" onClick={e => {dispatch(flyoutToggle('flyout-foobar1'))}}>dropdown menu</button>
+                    <Flyout id="flyout-foobar1" options={flyoutOptions1}>
+                        <ul>
+                            <li><a href="#"><i className="fa fa-rocket" />Most recent</a></li>
+                            <li><a href="#"><i className="fa fa-bullseye" />Most relevant<i className="fa fa-check" /></a></li>
+                            <li><a href="#"><i className="fa fa-sort-alpha-asc" />Alphabetically</a></li>
+                            <li><a href="#"><i className="fa fa-sort-alpha-desc" />Alphabetically</a></li>
+                        </ul>
+                    </Flyout>
+                </div>
+                <div className="has-flyout">
+                    <button type="button" className="button-primary" data-flyout-id="flyout-foobar2" onClick={e => {dispatch(flyoutToggle('flyout-foobar2'))}}>text & button</button>
+                    <Flyout id="flyout-foobar2" options={flyoutOptions2}>
+                        <p>Lorizzle ipsizzle dolizzle sit fo shizzle, fo shizzle mah nizzle fo rizzle...</p>
+                        <button type="button" className="button-primary">Shizzle!</button>
+                    </Flyout>
+                </div>
+                <div className="has-flyout">
+                    <button type="button" className="button-primary" data-flyout-id="flyout-foobar3"
+                        onMouseOver={e => {dispatch(flyoutToggle('flyout-foobar3'))}}
+                        onMouseLeave={e => {dispatch(flyoutToggle('flyout-foobar3'))}}
+                        >tooltip</button>
+                    <Flyout id="flyout-foobar3" options={flyoutOptions3}>
+                        <p>Lorizzle you son of a bizzle dolizzle pimpin crunk, pot away yippiyo. Nullizzle fo shizzle!</p>
+                    </Flyout>
+                </div>
+            </div>
+
+            <div>
+                <h3>settings</h3>
 
                 <div className="has-flyout">
                     <button type="button" className="button-primary" data-flyout-id="flyout-foobar0" onClick={e => {dispatch(flyoutToggle('flyout-foobar0'))}}>test me</button>
@@ -67,36 +99,6 @@ let App = ({dispatch}) => {
                             <button type="button" onClick={flyoutOps.bind(this, {theme: 'dark'})}>dark</button>
                             <button type="button" onClick={flyoutOps.bind(this, {theme: 'light'})}>light</button>
                         </div>
-                    </Flyout>
-                </div>
-            </div>
-            <div>
-                <h3>Other Flyout examples</h3>
-                <div className="has-flyout">
-                    <button type="button" className="button-primary" data-flyout-id="flyout-foobar1" onClick={e => {dispatch(flyoutToggle('flyout-foobar1'))}}>dropdown menu</button>
-                    <Flyout id="flyout-foobar1" options={flyoutOptions1}>
-                        <ul>
-                            <li><a href="#"><i className="fa fa-rocket" />Most recent</a></li>
-                            <li><a href="#"><i className="fa fa-bullseye" />Most relevant<i className="fa fa-check" /></a></li>
-                            <li><a href="#"><i className="fa fa-sort-alpha-asc" />Alphabetically</a></li>
-                            <li><a href="#"><i className="fa fa-sort-alpha-desc" />Alphabetically</a></li>
-                        </ul>
-                    </Flyout>
-                </div>
-                <div className="has-flyout">
-                    <button type="button" className="button-primary" data-flyout-id="flyout-foobar2" onClick={e => {dispatch(flyoutToggle('flyout-foobar2'))}}>text & button</button>
-                    <Flyout id="flyout-foobar2" options={flyoutOptions2}>
-                        <p>Lorizzle ipsizzle dolizzle sit fo shizzle, fo shizzle mah nizzle fo rizzle...</p>
-                        <button type="button" className="button-primary">Shizzle!</button>
-                    </Flyout>
-                </div>
-                <div className="has-flyout">
-                    <button type="button" className="button-primary" data-flyout-id="flyout-foobar3"
-                        onMouseOver={e => {dispatch(flyoutToggle('flyout-foobar3'))}}
-                        onMouseLeave={e => {dispatch(flyoutToggle('flyout-foobar3'))}}
-                        >tooltip</button>
-                    <Flyout id="flyout-foobar3" options={flyoutOptions3}>
-                        <p>Lorizzle you son of a bizzle dolizzle pimpin crunk, pot away yippiyo. Nullizzle fo shizzle!</p>
                     </Flyout>
                 </div>
             </div>
