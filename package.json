@@ -1,7 +1,23 @@
 {
   "name": "@aneves/react-flyout",
-  "version": "0.1.0",
   "description": "Flyout React Component",
+  "author": "Alexandre Neves <adn.denied@gmail.com>",
+  "keywords": [
+    "react-flyout",
+    "react-dropdown",
+    "react-tooltip",
+    "react-menu",
+    "react-dialog",
+    "react",
+    "flyout",
+    "dropdown",
+    "tooltip",
+    "menu",
+    "dialog"
+  ],
+  "version": "0.1.0",
+  "license": "MIT",
+  "homepage": "https://github.com/alexandreneves/react-flyout#readme",
   "main": "index.js",
   "scripts": {
     "build": "npm run build-js & npm run build-css & npm run build-example",
@@ -13,12 +29,9 @@
     "type": "git",
     "url": "git+https://github.com/alexandreneves/react-flyout.git"
   },
-  "author": "Alexandre Neves <adn.denied@gmail.com>",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/alexandreneves/react-flyout/issues"
   },
-  "homepage": "https://github.com/alexandreneves/react-flyout#readme",
   "devDependencies": {
     "babel-cli": "^6.7.5",
     "babel-core": "^6.7.6",
