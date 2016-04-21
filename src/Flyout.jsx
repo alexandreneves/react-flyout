@@ -85,7 +85,7 @@ class Flyout extends React.Component {
 
         const dom = ReactDOM.findDOMNode(this);
         const parent = dom.parentNode;
-        const margin = this.props.options.type !== 'tooltip' ? 1 : 6;
+        const margin = this._getMargin();
         let alignments = [];
 
         if (typeof alignment === 'undefined') alignment = this._getAlignment();
@@ -131,6 +131,16 @@ class Flyout extends React.Component {
         }
 
         this._verifyPosition();
+    }
+
+    _getMargin() {
+        const def = 1;
+        const type = this.props.options.type;
+        const margins = {
+            tooltip: 6,
+            menu: 0
+        }
+        return typeof margins[type] !== 'undefined' ? margins[type] : def;
     }
 
     _verifyPosition() {
