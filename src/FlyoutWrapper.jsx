@@ -82,7 +82,7 @@ FlyoutWrapper.propTypes = {
 FlyoutWrapper.defaultProps = {
     id: null,
     open: false,
-    options: null
+    options: {}
 };
 
 export default FlyoutWrapper;
