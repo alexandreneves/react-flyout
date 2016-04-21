@@ -18,6 +18,7 @@
   z-index: 7000;
   position: absolute;
   box-sizing: border-box;
+  margin-bottom: 25px;
   padding: 1px;
   font-size: 1.4rem;
   text-align: left;
