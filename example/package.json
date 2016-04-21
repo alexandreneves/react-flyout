@@ -1,7 +1,10 @@
 {
   "name": "react-flyout-example",
-  "version": "0.0.0",
   "description": "Flyout React Component",
+  "author": "Alexandre Neves <adn.denied@gmail.com>",
+  "version": "0.0.0",
+  "license": "MIT",
+  "homepage": "https://github.com/alexandreneves/react-flyout#readme",
   "main": "index.js",
   "scripts": {
     "start": "node server.js"
@@ -10,12 +13,9 @@
     "type": "git",
     "url": "git+https://github.com/alexandreneves/react-flyout.git"
   },
-  "author": "Alexandre Neves <adn.denied@gmail.com>",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/alexandreneves/react-flyout/issues"
   },
-  "homepage": "https://github.com/alexandreneves/react-flyout#readme",
   "dependencies": {
     "react": "^15.0.1",
     "react-dom": "^15.0.1",

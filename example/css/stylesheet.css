@@ -22,13 +22,35 @@ a {
     text-decoration: none;
 }
 
+p {
+    margin-bottom: 1.5rem;
+}
+
 .examples {
-    margin: 50px 0 100px;
+    margin: 50px 0 75px;
 }
 
 button {
     margin: 0;
     padding: 0 1.5rem;
+    background: white;
+}
+
+button + button {
+    margin-left: 0.5rem;
+}
+
+/*
+ *
+ * flyouts
+ */
+
+.flyout-foobar0 {
+    width: 210px;
+}
+
+.flyout-foobar0 div {
+    text-align: center;
 }
 
 .flyout-foobar2 {
@@ -39,12 +61,18 @@ button {
     margin: 0;
 }
 
-button + button, .has-flyout + .has-flyout { margin-bottom: 0.5rem; }
-button + button, .has-flyout + .has-flyout { margin-left: 0.5rem; }
+.has-flyout {
+    margin: 2px;
+}
+
+/*
+ *
+ * alignto
+ */
 
 .alignto {
     overflow: hidden;
-    width: 168px;
+    width: 140px;
     margin: 0 auto 15px;
 }
 
@@ -54,8 +82,8 @@ button + button, .has-flyout + .has-flyout { margin-left: 0.5rem; }
 
 .alignto > div > div {
     float: left;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
 }
 
 .alignto .alignto__clickable {

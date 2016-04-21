@@ -15,7 +15,8 @@ let App = ({dispatch}) => {
     };
 
     const flyoutOptions2 = {
-        theme: 'dark'
+        theme: 'dark',
+        align: 'top left'
     };
 
     const flyoutOptions3 = {
@@ -30,9 +31,49 @@ let App = ({dispatch}) => {
     return (
         <div>
             <div className="examples">
-                <h3>Examples</h3>
+                <h3>Example</h3>
+
                 <div className="has-flyout">
-                    <button type="button" className="button-primary" data-flyout-id="flyout-foobar1" onClick={e => {dispatch(flyoutToggle('flyout-foobar1'))}}>with list</button>
+                    <button type="button" className="button-primary" data-flyout-id="flyout-foobar0" onClick={e => {dispatch(flyoutToggle('flyout-foobar0'))}}>test me</button>
+                    <Flyout id="flyout-foobar0">
+                        <p>Change the settings bellow</p>
+                        <div className="alignto">
+                            <div>
+                                <div></div>
+                                <div className="alignto__clickable alignto__clickable--topleft" onClick={flyoutOps.bind(this, {align: 'top left'})}><i className="fa fa-arrow-up" /></div>
+                                <div className="alignto__clickable alignto__clickable--topright" onClick={flyoutOps.bind(this, {align: 'top right'})}><i className="fa fa-arrow-up" /></div>
+                                <div></div>
+                            </div>
+                            <div>
+                                <div className="alignto__clickable alignto__clickable--lefttop" onClick={flyoutOps.bind(this, {align: 'left top'})}><i className="fa fa-arrow-left" /></div>
+                                <div></div>
+                                <div></div>
+                                <div className="alignto__clickable alignto__clickable--righttop" onClick={flyoutOps.bind(this, {align: 'right top'})}><i className="fa fa-arrow-right" /></div>
+                            </div>
+                            <div>
+                                <div className="alignto__clickable alignto__clickable--leftbottom" onClick={flyoutOps.bind(this, {align: 'left bottom'})}><i className="fa fa-arrow-left" /></div>
+                                <div></div>
+                                <div></div>
+                                <div className="alignto__clickable alignto__clickable--rightbottom" onClick={flyoutOps.bind(this, {align: 'right bottom'})}><i className="fa fa-arrow-right" /></div>
+                            </div>
+                            <div>
+                                <div></div>
+                                <div className="alignto__clickable alignto__clickable--bottomleft" onClick={flyoutOps.bind(this, {align: 'bottom left'})}><i className="fa fa-arrow-down" /></div>
+                                <div className="alignto__clickable alignto__clickable--bottomright" onClick={flyoutOps.bind(this, {align: 'bottom right'})}><i className="fa fa-arrow-down" /></div>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="button" onClick={flyoutOps.bind(this, {theme: 'dark'})}>dark</button>
+                            <button type="button" onClick={flyoutOps.bind(this, {theme: 'light'})}>light</button>
+                        </div>
+                    </Flyout>
+                </div>
+            </div>
+            <div>
+                <h3>Other Flyout examples</h3>
+                <div className="has-flyout">
+                    <button type="button" className="button-primary" data-flyout-id="flyout-foobar1" onClick={e => {dispatch(flyoutToggle('flyout-foobar1'))}}>dropdown menu</button>
                     <Flyout id="flyout-foobar1" options={flyoutOptions1}>
                         <ul>
                             <li><a href="#"><i className="fa fa-rocket" />Most recent</a></li>
@@ -43,7 +84,7 @@ let App = ({dispatch}) => {
                     </Flyout>
                 </div>
                 <div className="has-flyout">
-                    <button type="button" className="button-primary" data-flyout-id="flyout-foobar2" onClick={e => {dispatch(flyoutToggle('flyout-foobar2'))}}>with text & button</button>
+                    <button type="button" className="button-primary" data-flyout-id="flyout-foobar2" onClick={e => {dispatch(flyoutToggle('flyout-foobar2'))}}>text & button</button>
                     <Flyout id="flyout-foobar2" options={flyoutOptions2}>
                         <p>Lorizzle ipsizzle dolizzle sit fo shizzle, fo shizzle mah nizzle fo rizzle...</p>
                         <button type="button" className="button-primary">Shizzle!</button>
@@ -55,43 +96,8 @@ let App = ({dispatch}) => {
                         onMouseLeave={e => {dispatch(flyoutToggle('flyout-foobar3'))}}
                         >tooltip</button>
                     <Flyout id="flyout-foobar3" options={flyoutOptions3}>
-                        <p>Lorizzle you son of a bizzle dolizzle pimpin' crunk, pot away yippiyo. Nullizzle fo shizzle!</p>
+                        <p>Lorizzle you son of a bizzle dolizzle pimpin crunk, pot away yippiyo. Nullizzle fo shizzle!</p>
                     </Flyout>
-                </div>
-            </div>
-            <div>
-                <h3>Alignment and Theme</h3>
-                <p>Open a Flyout and change these configs to see it in action.<br />For the <b>tooltip example</b> change the configs first then hover the button.</p>
-
-                <div className="alignto">
-                    <div>
-                        <div></div>
-                        <div className="alignto__clickable alignto__clickable--topleft" onClick={flyoutOps.bind(this, {align: 'top left'})}><i className="fa fa-arrow-up" /></div>
-                        <div className="alignto__clickable alignto__clickable--topright" onClick={flyoutOps.bind(this, {align: 'top right'})}><i className="fa fa-arrow-up" /></div>
-                        <div></div>
-                    </div>
-                    <div>
-                        <div className="alignto__clickable alignto__clickable--lefttop" onClick={flyoutOps.bind(this, {align: 'left top'})}><i className="fa fa-arrow-left" /></div>
-                        <div></div>
-                        <div></div>
-                        <div className="alignto__clickable alignto__clickable--righttop" onClick={flyoutOps.bind(this, {align: 'right top'})}><i className="fa fa-arrow-right" /></div>
-                    </div>
-                    <div>
-                        <div className="alignto__clickable alignto__clickable--leftbottom" onClick={flyoutOps.bind(this, {align: 'left bottom'})}><i className="fa fa-arrow-left" /></div>
-                        <div></div>
-                        <div></div>
-                        <div className="alignto__clickable alignto__clickable--rightbottom" onClick={flyoutOps.bind(this, {align: 'right bottom'})}><i className="fa fa-arrow-right" /></div>
-                    </div>
-                    <div>
-                        <div></div>
-                        <div className="alignto__clickable alignto__clickable--bottomleft" onClick={flyoutOps.bind(this, {align: 'bottom left'})}><i className="fa fa-arrow-down" /></div>
-                        <div className="alignto__clickable alignto__clickable--bottomright" onClick={flyoutOps.bind(this, {align: 'bottom right'})}><i className="fa fa-arrow-down" /></div>
-                        <div></div>
-                    </div>
-                </div>
-                <div>
-                    <button type="button" onClick={flyoutOps.bind(this, {theme: 'dark'})}>theme: dark</button>
-                    <button type="button" onClick={flyoutOps.bind(this, {theme: 'light'})}>theme: light</button>
                 </div>
             </div>
         </div>
