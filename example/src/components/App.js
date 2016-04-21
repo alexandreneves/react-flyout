@@ -68,7 +68,7 @@ let App = ({dispatch}) => {
                 <div className="has-flyout">
                     <button type="button" className="button-primary" data-flyout-id="flyout-foobar0" onClick={e => {dispatch(flyoutToggle('flyout-foobar0'))}}>test me</button>
                     <Flyout id="flyout-foobar0">
-                        <p>Change the settings bellow</p>
+                        <p>Change settings bellow</p>
                         <div className="alignto">
                             <div>
                                 <div></div>

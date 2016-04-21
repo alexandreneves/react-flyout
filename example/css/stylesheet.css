@@ -2,6 +2,16 @@
 @import url("./skeleton.css");
 @import url("../../dist/flyout.css");
 
+/* skeleton resets */
+
+html { font-size: 100%; }
+body { font-size: 1rem; }
+h1 { font-size: 3.5rem; }
+h1 { margin: 0; }
+h3 { font-size: 2.5rem; }
+
+/* defaults */
+
 body {
     min-width: 280px;
     padding: 75px 20px;
@@ -13,17 +23,13 @@ body > img {
     transform: rotate(-5deg);
 }
 
-h1, h2 {
-    margin: 0;
-}
-
 a {
     display: block;
     text-decoration: none;
 }
 
 p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
 }
 
 .examples {
@@ -32,24 +38,18 @@ p {
 
 button {
     margin: 0;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
     background: white;
 }
 
 button + button {
-    margin-left: 0.5rem;
+    margin-left: 4px;
 }
 
-/*
- *
- * flyouts
- */
+/* flyouts */
 
 .flyout-foobar0 {
-    width: 210px;
-}
-
-.flyout-foobar0 div {
+    width: 190px;
     text-align: center;
 }
 
@@ -65,14 +65,11 @@ button + button {
     margin: 2px;
 }
 
-/*
- *
- * alignto
- */
+/* alignto */
 
 .alignto {
     overflow: hidden;
-    width: 140px;
+    width: 120px;
     margin: 0 auto 15px;
 }
 
@@ -82,8 +79,8 @@ button + button {
 
 .alignto > div > div {
     float: left;
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
 }
 
 .alignto .alignto__clickable {
@@ -91,7 +88,7 @@ button + button {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    font-size: 2.5rem;
+    font-size: 1.4rem;
     border-radius: 4px;
 }
 

@@ -6,9 +6,6 @@
   "license": "MIT",
   "homepage": "https://github.com/alexandreneves/react-flyout#readme",
   "main": "index.js",
-  "scripts": {
-    "start": "node server.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alexandreneves/react-flyout.git"
