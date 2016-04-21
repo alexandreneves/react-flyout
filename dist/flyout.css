@@ -20,9 +20,11 @@
   box-sizing: border-box;
   margin-bottom: 25px;
   padding: 1px;
-  font-size: 1.4rem;
+  border-radius: 3px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.075);
   text-align: left;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.075); }
+  font-size: 0.9rem;
+  line-height: 1.4; }
   .flyout .flyout__wrapper {
     overflow: auto;
     overflow-x: hidden;
@@ -34,7 +36,6 @@
     color: #313941; }
   .flyout.flyout--dark {
     background: #313941;
-    border-radius: 3px;
     color: #fff; }
   .flyout.flyout--fixed {
     z-index: 7000;
@@ -45,13 +46,14 @@
     .flyout.flyout--fixed .flyout__wrapper {
       height: calc(100% - 45px);
       max-height: none !important; }
+  .flyout.flyout--menu {
+    border-radius: 0; }
   .flyout.flyout--tooltip {
     width: 180px; }
     .flyout.flyout--tooltip .flyout__wrapper {
       padding: 8px; }
       .flyout.flyout--tooltip .flyout__wrapper p {
-        text-align: center;
-        font-size: 1.1rem;
+        font-size: 0.8rem;
         line-height: 1.2; }
     .flyout.flyout--tooltip.flyout--top-right .flyout__arrow {
       top: 100%;
@@ -89,8 +91,7 @@
       position: absolute;
       border: 5px solid transparent; }
   .flyout.flyout--dropdown {
-    z-index: 5000;
-    border-radius: 3px; }
+    z-index: 5000; }
     .flyout.flyout--dropdown ul {
       list-style: none;
       margin: 0;
@@ -99,7 +100,6 @@
         width: 100%;
         margin: 0;
         padding: 0.7rem 0;
-        font-size: 1.4rem;
         border-bottom: 1px solid #ddd; }
         .flyout.flyout--dropdown ul li:first-child {
           padding-top: 0; }
@@ -110,9 +110,7 @@
           display: block; }
           .flyout.flyout--dropdown ul li a p {
             margin: 0;
-            color: #313941;
-            font-size: 1.4rem;
-            line-height: 1.4; }
+            color: #313941; }
     .flyout.flyout--dropdown.flyout--dropdown-has-icons-right ul li a, .flyout.flyout--dropdown.flyout--dropdown-has-icons-left ul li a {
       position: relative; }
       .flyout.flyout--dropdown.flyout--dropdown-has-icons-right ul li a > i, .flyout.flyout--dropdown.flyout--dropdown-has-icons-left ul li a > i {

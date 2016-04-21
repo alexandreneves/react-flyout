@@ -117,7 +117,7 @@ var Flyout = function (_React$Component) {
 
             var dom = _reactDom2.default.findDOMNode(this);
             var parent = dom.parentNode;
-            var margin = this.props.options.type !== 'tooltip' ? 1 : 6;
+            var margin = this._getMargin();
             var alignments = [];
 
             if (typeof alignment === 'undefined') alignment = this._getAlignment();
@@ -163,6 +163,17 @@ var Flyout = function (_React$Component) {
             }
 
             this._verifyPosition();
+        }
+    }, {
+        key: '_getMargin',
+        value: function _getMargin() {
+            var def = 1;
+            var type = this.props.options.type;
+            var margins = {
+                tooltip: 6,
+                menu: 0
+            };
+            return typeof margins[type] !== 'undefined' ? margins[type] : def;
         }
     }, {
         key: '_verifyPosition',
