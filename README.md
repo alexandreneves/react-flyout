@@ -121,8 +121,9 @@ Customization:
 $f_z_index_flyout: (...);
 $f_z_index_flyout--dropdown: (...);
 
-$f_font_size_big: (...);
-$f_font_size_small: (...);
+$f_font_size: (...);
+$f_font_size_tooltip: (...);
+$f_font_size_icon: (...);
 
 $f_color_light: (...);
 $f_color_dark: (...);
@@ -132,7 +133,7 @@ $f_border_radius: (...);
 
 // import original styles
 
-@import '~react-flyout/dist/flyout';
+@import '~@aneves/react-flyout/dist/flyout';
 
 // define your styles
 
