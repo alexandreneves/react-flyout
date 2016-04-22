@@ -101,7 +101,7 @@ $f_border_radius: 3px !default;
 
     // TYPE TOOLTIP
     &.flyout--tooltip {
-        width: 180px;
+        max-width: 180px;
         background: $f_color_tooltip;
         color: $f_color_light;
 
