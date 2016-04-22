@@ -31,7 +31,7 @@ If requested I can provide an Alt example.
 ## INSTALLATION
 
 ```sh
-$ npm i @aneves/react-modal
+$ npm i @aneves/react-flyout
 ```
 
 
