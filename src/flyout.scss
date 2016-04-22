@@ -9,6 +9,7 @@ $f_font_size_icon: 18px !default;
 
 $f_color_light: #fff !default;
 $f_color_dark: #313941 !default;
+$f_color_tooltip: #333 !default;
 $f_color_border: #ddd !default;
 
 $f_border_radius: 3px !default;
@@ -101,11 +102,14 @@ $f_border_radius: 3px !default;
     // TYPE TOOLTIP
     &.flyout--tooltip {
         width: 180px;
+        background: $f_color_tooltip;
+        color: $f_color_light;
 
         .flyout__wrapper {
             padding: 8px;
 
             p {
+                margin: 0;
                 font-size: $f_font_size_tooltip;
                 line-height: 1.2;
             }

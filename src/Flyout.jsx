@@ -380,19 +380,14 @@ class Flyout extends React.Component {
     _getClasses() {
         const classes = [];
 
+        classes.push(this.props.id);
         classes.push('flyout');
         classes.push(this.props.options.type ? 'flyout--'+ this.props.options.type : 'flyout--dropdown');
         classes.push('flyout--'+ this._getAlignment().join('-'));
 
         if (this.props.options.dropdownIconsLeft) classes.push('flyout--dropdown-has-icons-left');
         if (this.props.options.dropdownIconsRight) classes.push('flyout--dropdown-has-icons-right');
-        if (this.props.options.theme) {
-            classes.push('flyout--'+ this.props.options.theme);
-        } else {
-            classes.push(this.props.options.type === 'tooltip' ? 'flyout--dark' : 'flyout--light');
-        }
-
-        classes.push(this.props.id);
+        if (this.props.options.type !== 'tooltip') classes.push(this.props.options.theme ? 'flyout--'+ this.props.options.theme : 'flyout--light');
 
         return classes.join(' ');
     }
