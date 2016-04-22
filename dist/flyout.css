@@ -49,10 +49,13 @@
   .flyout.flyout--menu {
     border-radius: 0; }
   .flyout.flyout--tooltip {
-    width: 180px; }
+    width: 180px;
+    background: #333;
+    color: #fff; }
     .flyout.flyout--tooltip .flyout__wrapper {
       padding: 8px; }
       .flyout.flyout--tooltip .flyout__wrapper p {
+        margin: 0;
         font-size: 0.8rem;
         line-height: 1.2; }
     .flyout.flyout--tooltip.flyout--top-right .flyout__arrow {
