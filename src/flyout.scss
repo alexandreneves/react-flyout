@@ -101,7 +101,7 @@ $f_border_radius: 3px !default;
 
     // TYPE TOOLTIP
     &.flyout--tooltip {
-        max-width: 180px;
+        width: 175px;
         background: $f_color_tooltip;
         color: $f_color_light;
 
@@ -115,15 +115,8 @@ $f_border_radius: 3px !default;
             }
         }
 
-        &.flyout--top-right .flyout__arrow { top: 100%; left: 10px; }
-        &.flyout--top-left .flyout__arrow { top: 100%; right: 10px; }
-        &.flyout--right-top .flyout__arrow { bottom: 10px; right: 100%; }
-        &.flyout--right-bottom .flyout__arrow { top: 10px; right: 100%; }
-        &.flyout--bottom-right .flyout__arrow { bottom: 100%; left: 10px; }
-        &.flyout--bottom-left .flyout__arrow { bottom: 100%; right: 10px; }
-        &.flyout--left-top .flyout__arrow { bottom: 10px; left: 100%; }
-        &.flyout--left-bottom .flyout__arrow { top: 10px; left: 100%; }
-
+        // ARROW
+        
         &.flyout--top-right, &.flyout--top-left {
             .flyout__arrow {
                 border-top-color: $f_color_dark;

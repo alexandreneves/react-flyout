@@ -21,52 +21,31 @@ class Flyout extends React.Component {
 
     componentDidMount() {
         // console.info('flyout - componentDidMount');
-
-        // events
         this._resizeEventAdd();
-
-        // classes
         this._triggerClassSet();
-
-        // scroll position
         this._scrollPositionSave();
-
-        // flyout body
         this._setMaxHeight();
-        this._setPosition();
-
-        // toggle mutation observer
+        this._setAlignment();
         this._mutationObserve();
-
-        // size
         this._sizeHandler();
     }
 
     componentDidUpdate() {
         // console.info('flyout - componentDidUpdate');
-        this._setPosition();
+        this._setAlignment();
     }
 
     componentWillUnmount() {
         // console.info('flyout - componentWillUnmount');
-
-        // events
         this._resizeEventRemove();
-
-        // classes
         this._triggerClassUnset();
         this._bodyClassUnset();
-
-        // scrollposition
         this._scrollPositionLoad();
-
-        // toggle mutation observer
         this._mutationDisconnect();
     }
 
     render() {
         // console.info('flyout - render');
-
         const classes = this._getClasses();
         const arrow = this.props.options.type === 'tooltip' ? <span className="flyout__arrow" /> : null;
 
@@ -80,8 +59,8 @@ class Flyout extends React.Component {
         );
     }
 
-    _setPosition(alignment) {
-        // console.info('flyout - _setPosition');
+    _setAlignment(alignment) {
+        // console.info('flyout - _setAlignment');
 
         const dom = ReactDOM.findDOMNode(this);
         const parent = dom.parentNode;
@@ -130,17 +109,36 @@ class Flyout extends React.Component {
             dom.style.right = alignments[1]['left'];
         }
 
-        this._verifyPosition();
-    }
+        // arrow
+        if (this.props.options.type === 'tooltip') {
+            const arrow = document.querySelector(`#${this.props.id} .flyout__arrow`);
+            const arrowBorderWidth = parseInt(window.getComputedStyle(arrow, null).getPropertyValue('border-top-width'));
+            let arrowAlignment;
 
-    _getMargin() {
-        const def = 1;
-        const type = this.props.options.type;
-        const margins = {
-            tooltip: 6,
-            menu: 0
+            arrow.style.top = 'auto';
+            arrow.style.right = 'auto';
+            arrow.style.bottom = 'auto';
+            arrow.style.left = 'auto';
+
+            const arrowAlignmentTB = parent.offsetWidth / 2 - arrowBorderWidth + 'px'
+            if (alignment[0] === 'top' && alignment[1] === 'right') arrowAlignment = {top: '100%', left: arrowAlignmentTB}
+            if (alignment[0] === 'top' && alignment[1] === 'left') arrowAlignment = {top: '100%', right: arrowAlignmentTB}
+            if (alignment[0] === 'bottom' && alignment[1] === 'right') arrowAlignment = {bottom: '100%', left: arrowAlignmentTB}
+            if (alignment[0] === 'bottom' && alignment[1] === 'left') arrowAlignment = {bottom: '100%', right: arrowAlignmentTB}
+
+            const arrowAlignmentRL = parent.offsetHeight / 2 - arrowBorderWidth + 'px';
+            if (alignment[0] === 'right' && alignment[1] === 'top') arrowAlignment = {right: '100%', bottom: arrowAlignmentRL}
+            if (alignment[0] === 'right' && alignment[1] === 'bottom') arrowAlignment = {right: '100%', top: arrowAlignmentRL}
+            if (alignment[0] === 'left' && alignment[1] === 'top') arrowAlignment = {left: '100%', bottom: arrowAlignmentRL}
+            if (alignment[0] === 'left' && alignment[1] === 'bottom') arrowAlignment = {left: '100%', top: arrowAlignmentRL}
+
+            for (let k in arrowAlignment) {
+                arrow.style[k] = arrowAlignment[k];
+            }
         }
-        return typeof margins[type] !== 'undefined' ? margins[type] : def;
+
+        // VERIFY IF FIXED PARENT
+        this._verifyPosition();
     }
 
     _verifyPosition() {
@@ -154,23 +152,23 @@ class Flyout extends React.Component {
         // 2 - if not, determine the best alignment
         // 3 - inside scroll will take care of the rest
 
-        let windowHeight = window.innerHeight;
+        const windowHeight = window.innerHeight;
 
-        let trigger = this._getTrigger();
-        let triggerHeight = parseInt(trigger.offsetHeight);
-        let triggerOffsetTop = parseInt(this._getOffset(trigger)['top']);
+        const trigger = this._getTrigger();
+        const triggerHeight = parseInt(trigger.offsetHeight);
+        const triggerOffsetTop = parseInt(this._getOffset(trigger)['top']);
 
-        let flyout = document.querySelector('#'+ this.props.id);
-        let flyoutContent = document.querySelector('#'+ this.props.id + '> div'); // todo: fix me
-        let flyoutHeight = parseInt(flyout.offsetHeight);
-        let flyoutOffsetTop = parseInt(this._getOffset(flyout)['top']);
-        let flyoutMinHeight = parseInt(flyout.style.minHeight) | 0;
-        let flyoutMaxHeight = parseInt(flyout.style.maxHeight) | 0;
+        const flyout = document.querySelector('#'+ this.props.id);
+        const flyoutContent = document.querySelector('#'+ this.props.id + '> div'); // todo: fix me
+        const flyoutHeight = parseInt(flyout.offsetHeight);
+        const flyoutOffsetTop = parseInt(this._getOffset(flyout)['top']);
+        const flyoutMinHeight = parseInt(flyout.style.minHeight) | 0;
+        const flyoutMaxHeight = parseInt(flyout.style.maxHeight) | 0;
 
-        let alignment = this._getAlignment();
+        const alignment = this._getAlignment();
 
-        let moreSpaceAbove = (triggerOffsetTop + (triggerHeight / 2) > (windowHeight / 2));
-        let getMaxHeightOffsetPosition = moreSpaceAbove ? 'top' : 'bottom';
+        const moreSpaceAbove = (triggerOffsetTop + (triggerHeight / 2) > (windowHeight / 2));
+        const getMaxHeightOffsetPosition = moreSpaceAbove ? 'top' : 'bottom';
 
         let newFlyoutMaxHeight;
 
@@ -193,7 +191,7 @@ class Flyout extends React.Component {
                 flyoutContent.style.maxHeight = newFlyoutMaxHeight +'px';
 
                 // let's add a class for possible customizations when forced position is applied
-                if (alignment[0] === 'bottom' || alignment[1] === 'bottom') this._classAdd(flyout, 'flyout--forced-top');
+                if (alignment[0] === 'bottom' || alignment[1] === 'bottom') flyout.classList.add('flyout--forced-top');
             } else { // more space bellow
                 // console.info('flyout - we have more space bellow, overriding position and max-height');
 
@@ -210,27 +208,24 @@ class Flyout extends React.Component {
                 flyoutContent.style.maxHeight = newFlyoutMaxHeight +'px';
 
                 // let's add a class for possible customizations when forced position is applied
-                if (alignment[0] === 'top' || alignment[1] === 'top') this._classAdd(flyout, 'flyout--forced-bottom');
+                if (alignment[0] === 'top' || alignment[1] === 'top') flyout.classList.add('flyout--forced-bottom');
             }
         }
     }
 
     _setMaxHeight() {
         // console.info('flyout - _setMaxHeight');
-        
-        let windowHeight = window.innerHeight;
-        let flyoutContent = document.querySelector('#'+ this.props.id +' > div');
-
-        let maxHeight = parseInt(windowHeight / 1.20);
+        const windowHeight = window.innerHeight;
+        const flyoutContent = document.querySelector('#'+ this.props.id +' > div');
+        const maxHeight = parseInt(windowHeight / 1.20);
 
         flyoutContent.style.maxHeight = maxHeight;
     }
 
     _mutationObserve() {
         // console.info('flyout - _mutationObserve');
-
-        let MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
-        let flyout = document.querySelector('#'+ this.props.id);
+        const MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+        const flyout = document.querySelector('#'+ this.props.id);
 
         this.mutation = new MutationObserver((mutations) => {
             this._mutationObserved();
@@ -238,7 +233,9 @@ class Flyout extends React.Component {
 
         this.mutation.observe(flyout, {
             childList: true,
-            subtree: true
+            subtree: true,
+            attributes: true,
+            characterData: true
         });
     }
 
@@ -256,15 +253,14 @@ class Flyout extends React.Component {
         if (!this.props.options.mobile) return false;
         // console.info('flyout - _sizeHandler');
 
-        let flyout = document.querySelector('#'+ this.props.id);
-        let width = window.innerWidth;
-
+        const flyout = document.querySelector('#'+ this.props.id);
+        const width = window.innerWidth;
 
         if (window.innerWidth < this.mediaQueries.mediumUp) {
-            this._classAdd(flyout, 'flyout--fixed');
+            flyout.classList.add('flyout--fixed');
             this._bodyClassSet();
         } else {
-            this._classRemove(flyout, 'flyout--fixed');
+            flyout.classList.remove('flyout--fixed');
             this._bodyClassUnset();
         }
     }
@@ -285,22 +281,22 @@ class Flyout extends React.Component {
 
     _triggerClassSet() {
         // console.info('flyout - _triggerClassSet');
-        this._classAdd(this._getTrigger(), this.classes.trigger);
+        this._getTrigger().classList.add(this.classes.trigger);
     }
 
     _triggerClassUnset() {
         // console.info('flyout - _triggetClassUnset');
-        this._classRemove(this._getTrigger(), this.classes.trigger);
+        this._getTrigger().classList.remove(this.classes.trigger);
     }
 
     _bodyClassSet() {
         // console.info('flyout - _bodyClassSet');
-        this._classAdd(this.body, this.classes.body);
+        this._getTrigger().classList.add(this.classes.body);
     }
 
     _bodyClassUnset() {
         // console.info('flyout - _bodyClassUnset');
-        this._classRemove(this.body, this.classes.body);
+        this._getTrigger().classList.remove(this.classes.body);
     }
 
     _scrollPositionSave() {
@@ -334,6 +330,16 @@ class Flyout extends React.Component {
         }
     }
 
+    _getMargin() {
+        const def = 1;
+        const type = this.props.options.type;
+        const margins = {
+            tooltip: 6,
+            menu: 0
+        }
+        return typeof margins[type] !== 'undefined' ? margins[type] : def;
+    }
+
     _getMaxHeightOffset(position) {
         // console.info('flyout - _getMaxHeightOffset:', position);
         return (position === 'top') ? 60 : 25;
@@ -341,8 +347,8 @@ class Flyout extends React.Component {
 
     _getTrigger() {
         // console.info('flyout - _getTrigger);
-        let triggers = document.querySelectorAll('[data-flyout-id]');
-        let triggersLength = triggers.length;
+        const triggers = document.querySelectorAll('[data-flyout-id]');
+        const triggersLength = triggers.length;
 
         for (let i = 0; i < triggersLength; i++) {
             if (triggers[i].getAttribute('data-flyout-id') === this.props.id) {
@@ -355,8 +361,8 @@ class Flyout extends React.Component {
 
     _getMediaQueries() {
         // console.info('flyout - _getMediaQueries');
-        let mediaQueries = {};
         const mqs = this.props.mediaQueries;
+        let mediaQueries = {};
 
         mediaQueries.breakpointSmall = mqs && mqs.breakpointSmall ? mqs.breakpointSmall : 640;
         mediaQueries.breakpointMedium = mqs && mqs.breakpointMedium ? mqs.breakpointMedium : 1024;
@@ -369,7 +375,7 @@ class Flyout extends React.Component {
 
     _getOffset(el) {
         // console.info('flyout - _getOffset');
-        var rect = el.getBoundingClientRect();
+        const rect = el.getBoundingClientRect();
 
         return {
             top: rect.top,
@@ -390,16 +396,6 @@ class Flyout extends React.Component {
         if (this.props.options.type !== 'tooltip') classes.push(this.props.options.theme ? 'flyout--'+ this.props.options.theme : 'flyout--light');
 
         return classes.join(' ');
-    }
-
-    _classAdd(el, elClass) {
-        // console.info('flyout - _classAdd');
-        el.classList.add(elClass);
-    }
-
-    _classRemove(el, elClass) {
-        // console.info('flyout - _classRemove');
-        el.classList.remove(elClass);
     }
 };
 
