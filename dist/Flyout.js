@@ -47,55 +47,34 @@ var Flyout = function (_React$Component) {
         key: 'componentDidMount',
         value: function componentDidMount() {
             // console.info('flyout - componentDidMount');
-
-            // events
             this._resizeEventAdd();
-
-            // classes
             this._triggerClassSet();
-
-            // scroll position
             this._scrollPositionSave();
-
-            // flyout body
             this._setMaxHeight();
-            this._setPosition();
-
-            // toggle mutation observer
+            this._setAlignment();
             this._mutationObserve();
-
-            // size
             this._sizeHandler();
         }
     }, {
         key: 'componentDidUpdate',
         value: function componentDidUpdate() {
             // console.info('flyout - componentDidUpdate');
-            this._setPosition();
+            this._setAlignment();
         }
     }, {
         key: 'componentWillUnmount',
         value: function componentWillUnmount() {
             // console.info('flyout - componentWillUnmount');
-
-            // events
             this._resizeEventRemove();
-
-            // classes
             this._triggerClassUnset();
             this._bodyClassUnset();
-
-            // scrollposition
             this._scrollPositionLoad();
-
-            // toggle mutation observer
             this._mutationDisconnect();
         }
     }, {
         key: 'render',
         value: function render() {
             // console.info('flyout - render');
-
             var classes = this._getClasses();
             var arrow = this.props.options.type === 'tooltip' ? _react2.default.createElement('span', { className: 'flyout__arrow' }) : null;
 
@@ -111,9 +90,9 @@ var Flyout = function (_React$Component) {
             );
         }
     }, {
-        key: '_setPosition',
-        value: function _setPosition(alignment) {
-            // console.info('flyout - _setPosition');
+        key: '_setAlignment',
+        value: function _setAlignment(alignment) {
+            // console.info('flyout - _setAlignment');
 
             var dom = _reactDom2.default.findDOMNode(this);
             var parent = dom.parentNode;
@@ -162,18 +141,36 @@ var Flyout = function (_React$Component) {
                 dom.style.right = alignments[1]['left'];
             }
 
+            // arrow
+            if (this.props.options.type === 'tooltip') {
+                var arrow = document.querySelector('#' + this.props.id + ' .flyout__arrow');
+                var arrowBorderWidth = parseInt(window.getComputedStyle(arrow, null).getPropertyValue('border-top-width'));
+                var arrowAlignment = void 0;
+
+                arrow.style.top = 'auto';
+                arrow.style.right = 'auto';
+                arrow.style.bottom = 'auto';
+                arrow.style.left = 'auto';
+
+                var arrowAlignmentTB = parent.offsetWidth / 2 - arrowBorderWidth + 'px';
+                if (alignment[0] === 'top' && alignment[1] === 'right') arrowAlignment = { top: '100%', left: arrowAlignmentTB };
+                if (alignment[0] === 'top' && alignment[1] === 'left') arrowAlignment = { top: '100%', right: arrowAlignmentTB };
+                if (alignment[0] === 'bottom' && alignment[1] === 'right') arrowAlignment = { bottom: '100%', left: arrowAlignmentTB };
+                if (alignment[0] === 'bottom' && alignment[1] === 'left') arrowAlignment = { bottom: '100%', right: arrowAlignmentTB };
+
+                var arrowAlignmentRL = parent.offsetHeight / 2 - arrowBorderWidth + 'px';
+                if (alignment[0] === 'right' && alignment[1] === 'top') arrowAlignment = { right: '100%', bottom: arrowAlignmentRL };
+                if (alignment[0] === 'right' && alignment[1] === 'bottom') arrowAlignment = { right: '100%', top: arrowAlignmentRL };
+                if (alignment[0] === 'left' && alignment[1] === 'top') arrowAlignment = { left: '100%', bottom: arrowAlignmentRL };
+                if (alignment[0] === 'left' && alignment[1] === 'bottom') arrowAlignment = { left: '100%', top: arrowAlignmentRL };
+
+                for (var k in arrowAlignment) {
+                    arrow.style[k] = arrowAlignment[k];
+                }
+            }
+
+            // VERIFY IF FIXED PARENT
             this._verifyPosition();
-        }
-    }, {
-        key: '_getMargin',
-        value: function _getMargin() {
-            var def = 1;
-            var type = this.props.options.type;
-            var margins = {
-                tooltip: 6,
-                menu: 0
-            };
-            return typeof margins[type] !== 'undefined' ? margins[type] : def;
         }
     }, {
         key: '_verifyPosition',
@@ -228,7 +225,7 @@ var Flyout = function (_React$Component) {
                     flyoutContent.style.maxHeight = newFlyoutMaxHeight + 'px';
 
                     // let's add a class for possible customizations when forced position is applied
-                    if (alignment[0] === 'bottom' || alignment[1] === 'bottom') this._classAdd(flyout, 'flyout--forced-top');
+                    if (alignment[0] === 'bottom' || alignment[1] === 'bottom') flyout.classList.add('flyout--forced-top');
                 } else {
                     // more space bellow
                     // console.info('flyout - we have more space bellow, overriding position and max-height');
@@ -246,7 +243,7 @@ var Flyout = function (_React$Component) {
                     flyoutContent.style.maxHeight = _newFlyoutMaxHeight + 'px';
 
                     // let's add a class for possible customizations when forced position is applied
-                    if (alignment[0] === 'top' || alignment[1] === 'top') this._classAdd(flyout, 'flyout--forced-bottom');
+                    if (alignment[0] === 'top' || alignment[1] === 'top') flyout.classList.add('flyout--forced-bottom');
                 }
             }
         }
@@ -254,10 +251,8 @@ var Flyout = function (_React$Component) {
         key: '_setMaxHeight',
         value: function _setMaxHeight() {
             // console.info('flyout - _setMaxHeight');
-
             var windowHeight = window.innerHeight;
             var flyoutContent = document.querySelector('#' + this.props.id + ' > div');
-
             var maxHeight = parseInt(windowHeight / 1.20);
 
             flyoutContent.style.maxHeight = maxHeight;
@@ -268,7 +263,6 @@ var Flyout = function (_React$Component) {
             var _this2 = this;
 
             // console.info('flyout - _mutationObserve');
-
             var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
             var flyout = document.querySelector('#' + this.props.id);
 
@@ -278,7 +272,9 @@ var Flyout = function (_React$Component) {
 
             this.mutation.observe(flyout, {
                 childList: true,
-                subtree: true
+                subtree: true,
+                attributes: true,
+                characterData: true
             });
         }
     }, {
@@ -303,10 +299,10 @@ var Flyout = function (_React$Component) {
             var width = window.innerWidth;
 
             if (window.innerWidth < this.mediaQueries.mediumUp) {
-                this._classAdd(flyout, 'flyout--fixed');
+                flyout.classList.add('flyout--fixed');
                 this._bodyClassSet();
             } else {
-                this._classRemove(flyout, 'flyout--fixed');
+                flyout.classList.remove('flyout--fixed');
                 this._bodyClassUnset();
             }
         }
@@ -332,25 +328,25 @@ var Flyout = function (_React$Component) {
         key: '_triggerClassSet',
         value: function _triggerClassSet() {
             // console.info('flyout - _triggerClassSet');
-            this._classAdd(this._getTrigger(), this.classes.trigger);
+            this._getTrigger().classList.add(this.classes.trigger);
         }
     }, {
         key: '_triggerClassUnset',
         value: function _triggerClassUnset() {
             // console.info('flyout - _triggetClassUnset');
-            this._classRemove(this._getTrigger(), this.classes.trigger);
+            this._getTrigger().classList.remove(this.classes.trigger);
         }
     }, {
         key: '_bodyClassSet',
         value: function _bodyClassSet() {
             // console.info('flyout - _bodyClassSet');
-            this._classAdd(this.body, this.classes.body);
+            this._getTrigger().classList.add(this.classes.body);
         }
     }, {
         key: '_bodyClassUnset',
         value: function _bodyClassUnset() {
             // console.info('flyout - _bodyClassUnset');
-            this._classRemove(this.body, this.classes.body);
+            this._getTrigger().classList.remove(this.classes.body);
         }
     }, {
         key: '_scrollPositionSave',
@@ -389,6 +385,17 @@ var Flyout = function (_React$Component) {
             }
         }
     }, {
+        key: '_getMargin',
+        value: function _getMargin() {
+            var def = 1;
+            var type = this.props.options.type;
+            var margins = {
+                tooltip: 6,
+                menu: 0
+            };
+            return typeof margins[type] !== 'undefined' ? margins[type] : def;
+        }
+    }, {
         key: '_getMaxHeightOffset',
         value: function _getMaxHeightOffset(position) {
             // console.info('flyout - _getMaxHeightOffset:', position);
@@ -413,8 +420,8 @@ var Flyout = function (_React$Component) {
         key: '_getMediaQueries',
         value: function _getMediaQueries() {
             // console.info('flyout - _getMediaQueries');
-            var mediaQueries = {};
             var mqs = this.props.mediaQueries;
+            var mediaQueries = {};
 
             mediaQueries.breakpointSmall = mqs && mqs.breakpointSmall ? mqs.breakpointSmall : 640;
             mediaQueries.breakpointMedium = mqs && mqs.breakpointMedium ? mqs.breakpointMedium : 1024;
@@ -450,18 +457,6 @@ var Flyout = function (_React$Component) {
             if (this.props.options.type !== 'tooltip') classes.push(this.props.options.theme ? 'flyout--' + this.props.options.theme : 'flyout--light');
 
             return classes.join(' ');
-        }
-    }, {
-        key: '_classAdd',
-        value: function _classAdd(el, elClass) {
-            // console.info('flyout - _classAdd');
-            el.classList.add(elClass);
-        }
-    }, {
-        key: '_classRemove',
-        value: function _classRemove(el, elClass) {
-            // console.info('flyout - _classRemove');
-            el.classList.remove(elClass);
         }
     }]);
 

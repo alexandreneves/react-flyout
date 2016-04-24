@@ -49,7 +49,7 @@
   .flyout.flyout--menu {
     border-radius: 0; }
   .flyout.flyout--tooltip {
-    max-width: 180px;
+    width: 175px;
     background: #333;
     color: #fff; }
     .flyout.flyout--tooltip .flyout__wrapper {
@@ -58,30 +58,6 @@
         margin: 0;
         font-size: 0.8rem;
         line-height: 1.2; }
-    .flyout.flyout--tooltip.flyout--top-right .flyout__arrow {
-      top: 100%;
-      left: 10px; }
-    .flyout.flyout--tooltip.flyout--top-left .flyout__arrow {
-      top: 100%;
-      right: 10px; }
-    .flyout.flyout--tooltip.flyout--right-top .flyout__arrow {
-      bottom: 10px;
-      right: 100%; }
-    .flyout.flyout--tooltip.flyout--right-bottom .flyout__arrow {
-      top: 10px;
-      right: 100%; }
-    .flyout.flyout--tooltip.flyout--bottom-right .flyout__arrow {
-      bottom: 100%;
-      left: 10px; }
-    .flyout.flyout--tooltip.flyout--bottom-left .flyout__arrow {
-      bottom: 100%;
-      right: 10px; }
-    .flyout.flyout--tooltip.flyout--left-top .flyout__arrow {
-      bottom: 10px;
-      left: 100%; }
-    .flyout.flyout--tooltip.flyout--left-bottom .flyout__arrow {
-      top: 10px;
-      left: 100%; }
     .flyout.flyout--tooltip.flyout--top-right .flyout__arrow, .flyout.flyout--tooltip.flyout--top-left .flyout__arrow {
       border-top-color: #313941; }
     .flyout.flyout--tooltip.flyout--right-top .flyout__arrow, .flyout.flyout--tooltip.flyout--right-bottom .flyout__arrow {
