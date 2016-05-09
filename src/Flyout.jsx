@@ -291,12 +291,12 @@ class Flyout extends React.Component {
 
     _bodyClassSet() {
         // console.info('flyout - _bodyClassSet');
-        this._getTrigger().classList.add(this.classes.body);
+        this.body.classList.add(this.classes.body);
     }
 
     _bodyClassUnset() {
         // console.info('flyout - _bodyClassUnset');
-        this._getTrigger().classList.remove(this.classes.body);
+        this.body.classList.remove(this.classes.body);
     }
 
     _scrollPositionSave() {
