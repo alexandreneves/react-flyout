@@ -340,13 +340,13 @@ var Flyout = function (_React$Component) {
         key: '_bodyClassSet',
         value: function _bodyClassSet() {
             // console.info('flyout - _bodyClassSet');
-            this._getTrigger().classList.add(this.classes.body);
+            this.body.classList.add(this.classes.body);
         }
     }, {
         key: '_bodyClassUnset',
         value: function _bodyClassUnset() {
             // console.info('flyout - _bodyClassUnset');
-            this._getTrigger().classList.remove(this.classes.body);
+            this.body.classList.remove(this.classes.body);
         }
     }, {
         key: '_scrollPositionSave',

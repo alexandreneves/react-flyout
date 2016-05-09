@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "354588fa75d1808d0ca2"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "c5a0b23a02f4fd52efef"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -50273,13 +50273,13 @@
 	        key: '_bodyClassSet',
 	        value: function _bodyClassSet() {
 	            // console.info('flyout - _bodyClassSet');
-	            this._getTrigger().classList.add(this.classes.body);
+	            this.body.classList.add(this.classes.body);
 	        }
 	    }, {
 	        key: '_bodyClassUnset',
 	        value: function _bodyClassUnset() {
 	            // console.info('flyout - _bodyClassUnset');
-	            this._getTrigger().classList.remove(this.classes.body);
+	            this.body.classList.remove(this.classes.body);
 	        }
 	    }, {
 	        key: '_scrollPositionSave',
