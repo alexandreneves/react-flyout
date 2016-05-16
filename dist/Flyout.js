@@ -52,8 +52,8 @@ var Flyout = function (_React$Component) {
             this._scrollPositionSave();
             this._setMaxHeight();
             this._setAlignment();
-            this._mutationObserve();
             this._sizeHandler();
+            this._mutationObserve();
         }
     }, {
         key: 'componentDidUpdate',

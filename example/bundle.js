@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "c5a0b23a02f4fd52efef"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "ec8a4cdad4ba0a124b9c"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -49985,8 +49985,8 @@
 	            this._scrollPositionSave();
 	            this._setMaxHeight();
 	            this._setAlignment();
-	            this._mutationObserve();
 	            this._sizeHandler();
+	            this._mutationObserve();
 	        }
 	    }, {
 	        key: 'componentDidUpdate',
