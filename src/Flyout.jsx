@@ -26,8 +26,8 @@ class Flyout extends React.Component {
         this._scrollPositionSave();
         this._setMaxHeight();
         this._setAlignment();
-        this._mutationObserve();
         this._sizeHandler();
+        this._mutationObserve();
     }
 
     componentDidUpdate() {
