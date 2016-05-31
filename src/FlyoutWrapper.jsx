@@ -3,6 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Flyout from './Flyout';
+import Closest from '@aneves/js-closest';
 
 class FlyoutWrapper extends React.Component {
     constructor(props) {
@@ -50,38 +51,22 @@ class FlyoutWrapper extends React.Component {
         // check if click was outside or inside the flyout
         if (dom) {
             if (dom.contains(e.target)) {
-                if (this._closest(e.target, 'tag', 'a')) this.props.onWindowClick();
+                if (Closest(e.target, 'tag', 'a')) this.props.onWindowClick();
             } else {
                 this.props.onWindowClick();
             }
         }
     }
-
-    _closest(el, findBy, findValue) {
-        if (!el) return false;
-
-        let value;
-
-        if (el.tagName.toLowerCase() === 'body') return null;
-
-        if (findBy === 'class') value = el.className;
-        if (findBy === 'id') value = el.id;
-        if (findBy === 'tag') value = el.tagName.toLowerCase();
-
-        if (value === findValue) return el; // found
-        return this._closest(el.parentNode, findBy, findValue); // not found, recurse
-    }
 }
 
 FlyoutWrapper.propTypes = {
     id: React.PropTypes.string.isRequired,
-    open: React.PropTypes.bool.isRequired,
+    open: React.PropTypes.bool,
     options: React.PropTypes.object
 };
 
 FlyoutWrapper.defaultProps = {
     id: null,
-    open: false,
     options: {}
 };
 

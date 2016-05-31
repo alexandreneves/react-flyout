@@ -20,6 +20,10 @@ var _Flyout = require('./Flyout');
 
 var _Flyout2 = _interopRequireDefault(_Flyout);
 
+var _jsClosest = require('@aneves/js-closest');
+
+var _jsClosest2 = _interopRequireDefault(_jsClosest);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -89,27 +93,11 @@ var FlyoutWrapper = function (_React$Component) {
             // check if click was outside or inside the flyout
             if (dom) {
                 if (dom.contains(e.target)) {
-                    if (this._closest(e.target, 'tag', 'a')) this.props.onWindowClick();
+                    if ((0, _jsClosest2.default)(e.target, 'tag', 'a')) this.props.onWindowClick();
                 } else {
                     this.props.onWindowClick();
                 }
             }
-        }
-    }, {
-        key: '_closest',
-        value: function _closest(el, findBy, findValue) {
-            if (!el) return false;
-
-            var value = void 0;
-
-            if (el.tagName.toLowerCase() === 'body') return null;
-
-            if (findBy === 'class') value = el.className;
-            if (findBy === 'id') value = el.id;
-            if (findBy === 'tag') value = el.tagName.toLowerCase();
-
-            if (value === findValue) return el; // found
-            return this._closest(el.parentNode, findBy, findValue); // not found, recurse
         }
     }]);
 
@@ -118,13 +106,12 @@ var FlyoutWrapper = function (_React$Component) {
 
 FlyoutWrapper.propTypes = {
     id: _react2.default.PropTypes.string.isRequired,
-    open: _react2.default.PropTypes.bool.isRequired,
+    open: _react2.default.PropTypes.bool,
     options: _react2.default.PropTypes.object
 };
 
 FlyoutWrapper.defaultProps = {
     id: null,
-    open: false,
     options: {}
 };
 
