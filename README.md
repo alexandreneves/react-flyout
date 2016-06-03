@@ -49,7 +49,6 @@ react-flyout is composed by 3 files
 + **flyout.css**
     + well... you know... CSS
 
-
 ### Why not dumb?
 
 The problem with these kind of componentes (dropdowns, modals, ...) is the need to handle window/body clicks in order to close. Why is this a problem? The lack of state (in this case) and the immutability of the props make it "impossible" to close itself.
@@ -63,7 +62,6 @@ Keep in mind that the **FlyoutWrapper** is optional, you can import the **Flyout
 ## USAGE
 
 The usage will depend on your projects architecture but will be something along these lines:
-
 
 ```html
 <div className="has-flyout">

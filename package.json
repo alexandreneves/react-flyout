@@ -48,6 +48,6 @@
     "react-dom": "^15.0.1"
   },
   "dependencies": {
-    "@aneves/js-closest": "^0.1.0"
+    "@aneves/js-closest": "^0.1.1"
   }
 }
