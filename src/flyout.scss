@@ -154,12 +154,12 @@ $f_border_radius: 3px !default;
     &.flyout--dropdown {
         z-index: $f_z_index_flyout--dropdown;
 
-        ul {
+        > ul {
             list-style: none;
             margin: 0;
             padding: 0;
 
-            li {
+            > li {
                 @extend .flyout-clearfix;
 
                 width: 100%;
@@ -176,7 +176,7 @@ $f_border_radius: 3px !default;
                     border-bottom: none;
                 }
 
-                a {
+                > a {
                     display: block;
 
                     p {
@@ -189,7 +189,7 @@ $f_border_radius: 3px !default;
 
         &.flyout--dropdown-has-icons-right,
         &.flyout--dropdown-has-icons-left {
-            ul li a {
+            > ul > li > a {
                 position: relative;
 
                 > i {
@@ -207,7 +207,7 @@ $f_border_radius: 3px !default;
         }
 
         &.flyout--dropdown-has-icons-right {
-            ul li a {
+            > ul > li > a {
                 padding-right: 30px;
 
                 > i:last-child {
@@ -217,7 +217,7 @@ $f_border_radius: 3px !default;
         }
 
         &.flyout--dropdown-has-icons-left {
-            ul li a {
+            > ul > li > a {
                 padding-left: 25px;
 
                 > i:first-child {
