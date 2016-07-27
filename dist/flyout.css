@@ -1,8 +1,8 @@
-.flyout-clearfix:before, .flyout.flyout--dropdown ul li:before, .flyout-clearfix:after, .flyout.flyout--dropdown ul li:after {
+.flyout-clearfix:before, .flyout.flyout--dropdown > ul > li:before, .flyout-clearfix:after, .flyout.flyout--dropdown > ul > li:after {
   content: "";
   display: table; }
 
-.flyout-clearfix:after, .flyout.flyout--dropdown ul li:after {
+.flyout-clearfix:after, .flyout.flyout--dropdown > ul > li:after {
   clear: both; }
 
 .has-flyout--fixed {
@@ -70,39 +70,39 @@
       border: 5px solid transparent; }
   .flyout.flyout--dropdown {
     z-index: 5000; }
-    .flyout.flyout--dropdown ul {
+    .flyout.flyout--dropdown > ul {
       list-style: none;
       margin: 0;
       padding: 0; }
-      .flyout.flyout--dropdown ul li {
+      .flyout.flyout--dropdown > ul > li {
         width: 100%;
         margin: 0;
         padding: 0.7rem 0;
         border-bottom: 1px solid #ddd; }
-        .flyout.flyout--dropdown ul li:first-child {
+        .flyout.flyout--dropdown > ul > li:first-child {
           padding-top: 0; }
-        .flyout.flyout--dropdown ul li:last-child {
+        .flyout.flyout--dropdown > ul > li:last-child {
           padding-bottom: 0;
           border-bottom: none; }
-        .flyout.flyout--dropdown ul li a {
+        .flyout.flyout--dropdown > ul > li > a {
           display: block; }
-          .flyout.flyout--dropdown ul li a p {
+          .flyout.flyout--dropdown > ul > li > a p {
             margin: 0;
             color: #313941; }
-    .flyout.flyout--dropdown.flyout--dropdown-has-icons-right ul li a, .flyout.flyout--dropdown.flyout--dropdown-has-icons-left ul li a {
+    .flyout.flyout--dropdown.flyout--dropdown-has-icons-right > ul > li > a, .flyout.flyout--dropdown.flyout--dropdown-has-icons-left > ul > li > a {
       position: relative; }
-      .flyout.flyout--dropdown.flyout--dropdown-has-icons-right ul li a > i, .flyout.flyout--dropdown.flyout--dropdown-has-icons-left ul li a > i {
+      .flyout.flyout--dropdown.flyout--dropdown-has-icons-right > ul > li > a > i, .flyout.flyout--dropdown.flyout--dropdown-has-icons-left > ul > li > a > i {
         font-size: 18px; }
-        .flyout.flyout--dropdown.flyout--dropdown-has-icons-right ul li a > i:first-child, .flyout.flyout--dropdown.flyout--dropdown-has-icons-right ul li a > i:last-child, .flyout.flyout--dropdown.flyout--dropdown-has-icons-left ul li a > i:first-child, .flyout.flyout--dropdown.flyout--dropdown-has-icons-left ul li a > i:last-child {
+        .flyout.flyout--dropdown.flyout--dropdown-has-icons-right > ul > li > a > i:first-child, .flyout.flyout--dropdown.flyout--dropdown-has-icons-right > ul > li > a > i:last-child, .flyout.flyout--dropdown.flyout--dropdown-has-icons-left > ul > li > a > i:first-child, .flyout.flyout--dropdown.flyout--dropdown-has-icons-left > ul > li > a > i:last-child {
           position: absolute;
           top: 2px;
           width: 25px;
           text-align: center; }
-    .flyout.flyout--dropdown.flyout--dropdown-has-icons-right ul li a {
+    .flyout.flyout--dropdown.flyout--dropdown-has-icons-right > ul > li > a {
       padding-right: 30px; }
-      .flyout.flyout--dropdown.flyout--dropdown-has-icons-right ul li a > i:last-child {
+      .flyout.flyout--dropdown.flyout--dropdown-has-icons-right > ul > li > a > i:last-child {
         right: -5px; }
-    .flyout.flyout--dropdown.flyout--dropdown-has-icons-left ul li a {
+    .flyout.flyout--dropdown.flyout--dropdown-has-icons-left > ul > li > a {
       padding-left: 25px; }
-      .flyout.flyout--dropdown.flyout--dropdown-has-icons-left ul li a > i:first-child {
+      .flyout.flyout--dropdown.flyout--dropdown-has-icons-left > ul > li > a > i:first-child {
         left: -5px; }
