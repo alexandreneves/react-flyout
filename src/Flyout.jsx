@@ -107,6 +107,14 @@ class Flyout extends React.Component {
             dom.style.top = alignments[1]['bottom'];
         } else if (alignment[1] === 'left') {
             dom.style.right = alignments[1]['left'];
+        } else if (alignment[1] === 'middle') {
+            const flyout = document.querySelector('#'+ this.props.id);
+
+            if (['top', 'bottom'].indexOf(alignment[0]) +1) {
+                dom.style.right = - (flyout.offsetWidth/2 - parent.offsetWidth/2) + 'px';
+            } else {
+                dom.style.top = - (flyout.offsetHeight/2 - parent.offsetHeight/2) + 'px';
+            }
         }
 
         // arrow
