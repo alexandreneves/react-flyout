@@ -86,14 +86,14 @@ You can pass various options as an object in the Flyout props `<Flyout options={
     *   `top middle`: (default for tooltips)
     *   example: `bottom right` will align the flyout to the bottom of the trigger and expand from left to right
     *   combinations.vertical: top/bottom right/bottom/middle
-    *   combinations.horizontal: left/right top/bottom/middle
+    *   combinations.horizontal: right/left top/bottom/middle
 + **type**: (string) `dropdown` (default) / `menu` / `tooltip`
 + **theme**: (string) `light` (default) / `dark`
-    *   tooltips are not affected by this
-+ **fixed**: (bool) set as `true` if the Flyout is contained withing a fixed element
-+ **mobile**: (bool) when `true` the Flyout will open full width/height bellow the medium media query
-+ **dropdownIconsLeft**: set as `true` if `type: dropdown` to style (left) icons on dropdown lists
-+ **dropdownIconsRight**: set as `true` if `type: dropdown` to style (right) icons on dropdown lists
+    *   tooltips are always `dark`
++ **fixed**: (bool; default: false) set as `true` if the Flyout is contained withing a fixed element
++ **mobile**: (bool; default: true) when `true` the Flyout will open full width/height bellow the medium media query
++ **dropdownIconsLeft**: (bool; default: false) set as `true` if `type: dropdown` to style (left) icons on dropdown lists
++ **dropdownIconsRight**: (bool; default: false) set as `true` if `type: dropdown` to style (right) icons on dropdown lists
 
 #### Media Queries
 
