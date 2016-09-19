@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "406675adaec521e44878"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f960561647f37723f883"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -38202,6 +38202,9 @@
 	        } }, 'text & button'), _react2.default.createElement(_Flyout2.default, { id: 'flyout-foobar2', options: flyoutOptions2 }, _react2.default.createElement('p', null, 'Lorizzle ipsizzle dolizzle sit fo shizzle, fo shizzle mah nizzle fo rizzle...'), _react2.default.createElement('button', { type: 'button', className: 'button-primary' }, 'Shizzle!'))), _react2.default.createElement('div', { className: 'has-flyout' }, _react2.default.createElement('button', { type: 'button', className: 'button-primary', 'data-flyout-id': 'flyout-foobar3',
 	        onMouseOver: function onMouseOver(e) {
 	            dispatch((0, _actions.flyoutToggle)('flyout-foobar3'));
+	        },
+	        onMouseLeave: function onMouseLeave(e) {
+	            dispatch((0, _actions.flyoutToggle)('flyout-foobar3'));
 	        }
 	    }, 'tooltip'), _react2.default.createElement(_Flyout2.default, { id: 'flyout-foobar3', options: flyoutOptions3 }, _react2.default.createElement('p', null, 'Lorizzle you son of a bizzle dolizzle pimpin crunk, pot away yippiyo. Nullizzle fo shizzle!')))), _react2.default.createElement('div', null, _react2.default.createElement('h3', null, 'settings'), _react2.default.createElement('div', { className: 'has-flyout' }, _react2.default.createElement('button', { type: 'button', className: 'button-primary', 'data-flyout-id': 'flyout-foobar0', onClick: function onClick(e) {
 	            dispatch((0, _actions.flyoutToggle)('flyout-foobar0'));
@@ -51078,9 +51081,6 @@
 	                if (alignment[0] === 'right' && alignment[1] === 'bottom') arrowAlignment = { right: '100%', top: arrowAlignmentRL };
 	                if (alignment[0] === 'left' && alignment[1] === 'top') arrowAlignment = { left: '100%', bottom: arrowAlignmentRL };
 	                if (alignment[0] === 'left' && alignment[1] === 'bottom') arrowAlignment = { left: '100%', top: arrowAlignmentRL };
-	
-	                console.log(arrowAlignment);
-	                console.log('-');
 	
 	                for (var k in arrowAlignment) {
 	                    arrow.style[k] = arrowAlignment[k];

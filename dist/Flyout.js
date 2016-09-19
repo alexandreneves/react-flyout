@@ -96,6 +96,7 @@ var Flyout = function (_React$Component) {
 
             var dom = _reactDom2.default.findDOMNode(this);
             var parent = dom.parentNode;
+            var flyout = document.querySelector('#' + this.props.id);
             var margin = this._getMargin();
             var alignments = [];
 
@@ -139,6 +140,12 @@ var Flyout = function (_React$Component) {
                 dom.style.top = alignments[1]['bottom'];
             } else if (alignment[1] === 'left') {
                 dom.style.right = alignments[1]['left'];
+            } else if (alignment[1] === 'middle') {
+                if (['top', 'bottom'].indexOf(alignment[0]) + 1) {
+                    dom.style.right = -(flyout.offsetWidth / 2 - parent.offsetWidth / 2) + 'px';
+                } else {
+                    dom.style.top = -(flyout.offsetHeight / 2 - parent.offsetHeight / 2) + 'px';
+                }
             }
 
             // arrow
@@ -151,6 +158,11 @@ var Flyout = function (_React$Component) {
                 arrow.style.right = 'auto';
                 arrow.style.bottom = 'auto';
                 arrow.style.left = 'auto';
+
+                if (alignment[1] === 'middle' && alignment[0] === 'top') arrowAlignment = { top: '100%', left: flyout.offsetWidth / 2 - arrowBorderWidth + 'px' };
+                if (alignment[1] === 'middle' && alignment[0] === 'bottom') arrowAlignment = { bottom: '100%', left: flyout.offsetWidth / 2 - arrowBorderWidth + 'px' };
+                if (alignment[1] === 'middle' && alignment[0] === 'right') arrowAlignment = { right: '100%', top: flyout.offsetHeight / 2 - arrowBorderWidth + 'px' };
+                if (alignment[1] === 'middle' && alignment[0] === 'left') arrowAlignment = { left: '100%', top: flyout.offsetHeight / 2 - arrowBorderWidth + 'px' };
 
                 var arrowAlignmentTB = parent.offsetWidth / 2 - arrowBorderWidth + 'px';
                 if (alignment[0] === 'top' && alignment[1] === 'right') arrowAlignment = { top: '100%', left: arrowAlignmentTB };
