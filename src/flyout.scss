@@ -120,25 +120,25 @@ $f_border_radius: 3px !default;
 
         // ARROW
         
-        &.flyout--top-right, &.flyout--top-left {
+        &.flyout--top-right, &.flyout--top-left, &.flyout--top-middle {
             .flyout__arrow {
                 border-top-color: $f_color_dark;
             }
         }
 
-        &.flyout--right-top, &.flyout--right-bottom {
+        &.flyout--right-top, &.flyout--right-bottom, &.flyout--right-middle {
             .flyout__arrow {
                 border-right-color: $f_color_dark;
             }
         }
 
-        &.flyout--bottom-right, &.flyout--bottom-left {
+        &.flyout--bottom-right, &.flyout--bottom-left, &.flyout--bottom-middle {
             .flyout__arrow {
                 border-bottom-color: $f_color_dark;
             }
         }
 
-        &.flyout--left-top, &.flyout--left-bottom {
+        &.flyout--left-top, &.flyout--left-bottom, &.flyout--left-middle {
             .flyout__arrow {
                 border-left-color: $f_color_dark;
             }
