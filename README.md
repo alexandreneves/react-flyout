@@ -83,8 +83,10 @@ You can pass various options as an object in the Flyout props `<Flyout options={
 
 + **align**: (string)
     *   `bottom right`: (default)
-    *   `top right`: (default for tooltips)
+    *   `top middle`: (default for tooltips)
     *   example: `bottom right` will align the flyout to the bottom of the trigger and expand from left to right
+    *   combinations.vertical: top/bottom right/bottom/middle
+    *   combinations.horizontal: left/right top/bottom/middle
 + **type**: (string) `dropdown` (default) / `menu` / `tooltip`
 + **theme**: (string) `light` (default) / `dark`
     *   tooltips are not affected by this

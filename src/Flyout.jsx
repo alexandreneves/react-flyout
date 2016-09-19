@@ -330,7 +330,7 @@ class Flyout extends React.Component {
 
     _getAlignment() {
         // console.info('flyout - _getAlignment');
-        const defaults = this.props.options.type === 'tooltip' ? 'top right' : 'bottom right';
+        const defaults = this.props.options.type === 'tooltip' ? 'top middle' : 'bottom right';
         const sep = ' ';
         let alignment = this.props.options.align;
 
