@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "e995decc05999d36cb53"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "406675adaec521e44878"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -38170,6 +38170,10 @@
 	var App = function App(_ref) {
 	    var dispatch = _ref.dispatch;
 	
+	    var flyoutOptions0 = {
+	        align: 'bottom middle'
+	    };
+	
 	    var flyoutOptions1 = {
 	        type: 'dropdown',
 	        dropdownIconsLeft: true,
@@ -38186,10 +38190,6 @@
 	        align: 'top left'
 	    };
 	
-	    var flyoutOptions0 = {
-	        align: 'bottom middle'
-	    };
-	
 	    var flyoutOps = function flyoutOps(opts, e) {
 	        e.stopPropagation();
 	        dispatch((0, _actions.flyoutOptions)(opts));
@@ -38201,9 +38201,6 @@
 	            dispatch((0, _actions.flyoutToggle)('flyout-foobar2'));
 	        } }, 'text & button'), _react2.default.createElement(_Flyout2.default, { id: 'flyout-foobar2', options: flyoutOptions2 }, _react2.default.createElement('p', null, 'Lorizzle ipsizzle dolizzle sit fo shizzle, fo shizzle mah nizzle fo rizzle...'), _react2.default.createElement('button', { type: 'button', className: 'button-primary' }, 'Shizzle!'))), _react2.default.createElement('div', { className: 'has-flyout' }, _react2.default.createElement('button', { type: 'button', className: 'button-primary', 'data-flyout-id': 'flyout-foobar3',
 	        onMouseOver: function onMouseOver(e) {
-	            dispatch((0, _actions.flyoutToggle)('flyout-foobar3'));
-	        },
-	        onMouseLeave: function onMouseLeave(e) {
 	            dispatch((0, _actions.flyoutToggle)('flyout-foobar3'));
 	        }
 	    }, 'tooltip'), _react2.default.createElement(_Flyout2.default, { id: 'flyout-foobar3', options: flyoutOptions3 }, _react2.default.createElement('p', null, 'Lorizzle you son of a bizzle dolizzle pimpin crunk, pot away yippiyo. Nullizzle fo shizzle!')))), _react2.default.createElement('div', null, _react2.default.createElement('h3', null, 'settings'), _react2.default.createElement('div', { className: 'has-flyout' }, _react2.default.createElement('button', { type: 'button', className: 'button-primary', 'data-flyout-id': 'flyout-foobar0', onClick: function onClick(e) {
@@ -38549,7 +38546,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".flyout-clearfix:before, .flyout.flyout--dropdown .flyout__wrapper > ul > li:before, .flyout-clearfix:after, .flyout.flyout--dropdown .flyout__wrapper > ul > li:after {\n  content: \"\";\n  display: table; }\n\n.flyout-clearfix:after, .flyout.flyout--dropdown .flyout__wrapper > ul > li:after {\n  clear: both; }\n\n.has-flyout--fixed {\n  background: #313941;\n  position: fixed;\n  overflow: hidden; }\n\n.has-flyout {\n  position: relative;\n  display: inline-block; }\n\n.flyout {\n  z-index: 7000;\n  position: absolute;\n  box-sizing: border-box;\n  padding: 1px;\n  border-radius: 3px;\n  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.075);\n  text-align: left;\n  font-size: 0.9rem;\n  line-height: 1.4; }\n  .flyout .flyout__wrapper {\n    overflow: auto;\n    overflow-x: hidden;\n    height: auto;\n    padding: 15px; }\n  .flyout.flyout--light {\n    background: #fff;\n    border: 1px solid #ddd;\n    color: #313941; }\n  .flyout.flyout--dark {\n    background: #313941;\n    color: #fff; }\n  .flyout.flyout--fixed {\n    z-index: 7000;\n    position: fixed;\n    left: 0;\n    width: 100% !important;\n    height: 100% !important; }\n    .flyout.flyout--fixed .flyout__wrapper {\n      height: calc(100% - 45px);\n      max-height: none !important; }\n  .flyout.flyout--menu {\n    border-radius: 0; }\n  .flyout.flyout--tooltip {\n    width: 175px;\n    background: #333;\n    color: #fff; }\n    .flyout.flyout--tooltip .flyout__wrapper {\n      padding: 8px; }\n      .flyout.flyout--tooltip .flyout__wrapper p {\n        margin: 0;\n        font-size: 0.8rem;\n        line-height: 1.2; }\n    .flyout.flyout--tooltip.flyout--top-right .flyout__arrow, .flyout.flyout--tooltip.flyout--top-left .flyout__arrow {\n      border-top-color: #313941; }\n    .flyout.flyout--tooltip.flyout--right-top .flyout__arrow, .flyout.flyout--tooltip.flyout--right-bottom .flyout__arrow {\n      border-right-color: #313941; }\n    .flyout.flyout--tooltip.flyout--bottom-right .flyout__arrow, .flyout.flyout--tooltip.flyout--bottom-left .flyout__arrow {\n      border-bottom-color: #313941; }\n    .flyout.flyout--tooltip.flyout--left-top .flyout__arrow, .flyout.flyout--tooltip.flyout--left-bottom .flyout__arrow {\n      border-left-color: #313941; }\n    .flyout.flyout--tooltip .flyout__arrow {\n      position: absolute;\n      border: 5px solid transparent; }\n  .flyout.flyout--dropdown {\n    z-index: 5000; }\n    .flyout.flyout--dropdown .flyout__wrapper > ul {\n      list-style: none;\n      margin: 0;\n      padding: 0; }\n      .flyout.flyout--dropdown .flyout__wrapper > ul > li {\n        width: 100%;\n        margin: 0;\n        padding: 0.7rem 0;\n        border-bottom: 1px solid #ddd; }\n        .flyout.flyout--dropdown .flyout__wrapper > ul > li:first-child {\n          padding-top: 0; }\n        .flyout.flyout--dropdown .flyout__wrapper > ul > li:last-child {\n          padding-bottom: 0;\n          border-bottom: none; }\n        .flyout.flyout--dropdown .flyout__wrapper > ul > li > a {\n          display: block; }\n          .flyout.flyout--dropdown .flyout__wrapper > ul > li > a p {\n            margin: 0;\n            color: #313941; }\n    .flyout.flyout--dropdown.flyout--dropdown-has-icons-right .flyout__wrapper > ul > li > a, .flyout.flyout--dropdown.flyout--dropdown-has-icons-left .flyout__wrapper > ul > li > a {\n      position: relative; }\n      .flyout.flyout--dropdown.flyout--dropdown-has-icons-right .flyout__wrapper > ul > li > a > i, .flyout.flyout--dropdown.flyout--dropdown-has-icons-left .flyout__wrapper > ul > li > a > i {\n        font-size: 18px; }\n        .flyout.flyout--dropdown.flyout--dropdown-has-icons-right .flyout__wrapper > ul > li > a > i:first-child, .flyout.flyout--dropdown.flyout--dropdown-has-icons-right .flyout__wrapper > ul > li > a > i:last-child, .flyout.flyout--dropdown.flyout--dropdown-has-icons-left .flyout__wrapper > ul > li > a > i:first-child, .flyout.flyout--dropdown.flyout--dropdown-has-icons-left .flyout__wrapper > ul > li > a > i:last-child {\n          position: absolute;\n          top: 2px;\n          width: 25px;\n          text-align: center; }\n    .flyout.flyout--dropdown.flyout--dropdown-has-icons-right .flyout__wrapper > ul > li > a {\n      padding-right: 30px; }\n      .flyout.flyout--dropdown.flyout--dropdown-has-icons-right .flyout__wrapper > ul > li > a > i:last-child {\n        right: -5px; }\n    .flyout.flyout--dropdown.flyout--dropdown-has-icons-left .flyout__wrapper > ul > li > a {\n      padding-left: 25px; }\n      .flyout.flyout--dropdown.flyout--dropdown-has-icons-left .flyout__wrapper > ul > li > a > i:first-child {\n        left: -5px; }\n", ""]);
+	exports.push([module.id, ".flyout-clearfix:before, .flyout.flyout--dropdown .flyout__wrapper > ul > li:before, .flyout-clearfix:after, .flyout.flyout--dropdown .flyout__wrapper > ul > li:after {\n  content: \"\";\n  display: table; }\n\n.flyout-clearfix:after, .flyout.flyout--dropdown .flyout__wrapper > ul > li:after {\n  clear: both; }\n\n.has-flyout--fixed {\n  background: #313941;\n  position: fixed;\n  overflow: hidden; }\n\n.has-flyout {\n  position: relative;\n  display: inline-block; }\n\n.flyout {\n  z-index: 7000;\n  position: absolute;\n  box-sizing: border-box;\n  padding: 1px;\n  border-radius: 3px;\n  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.075);\n  text-align: left;\n  font-size: 0.9rem;\n  line-height: 1.4; }\n  .flyout .flyout__wrapper {\n    overflow: auto;\n    overflow-x: hidden;\n    height: auto;\n    padding: 15px; }\n  .flyout.flyout--light {\n    background: #fff;\n    border: 1px solid #ddd;\n    color: #313941; }\n  .flyout.flyout--dark {\n    background: #313941;\n    color: #fff; }\n  .flyout.flyout--fixed {\n    z-index: 7000;\n    position: fixed;\n    left: 0;\n    width: 100% !important;\n    height: 100% !important; }\n    .flyout.flyout--fixed .flyout__wrapper {\n      height: calc(100% - 45px);\n      max-height: none !important; }\n  .flyout.flyout--menu {\n    border-radius: 0; }\n  .flyout.flyout--tooltip {\n    width: 175px;\n    background: #333;\n    color: #fff; }\n    .flyout.flyout--tooltip .flyout__wrapper {\n      padding: 8px; }\n      .flyout.flyout--tooltip .flyout__wrapper p {\n        margin: 0;\n        font-size: 0.8rem;\n        line-height: 1.2; }\n    .flyout.flyout--tooltip.flyout--top-right .flyout__arrow, .flyout.flyout--tooltip.flyout--top-left .flyout__arrow, .flyout.flyout--tooltip.flyout--top-middle .flyout__arrow {\n      border-top-color: #313941; }\n    .flyout.flyout--tooltip.flyout--right-top .flyout__arrow, .flyout.flyout--tooltip.flyout--right-bottom .flyout__arrow, .flyout.flyout--tooltip.flyout--right-middle .flyout__arrow {\n      border-right-color: #313941; }\n    .flyout.flyout--tooltip.flyout--bottom-right .flyout__arrow, .flyout.flyout--tooltip.flyout--bottom-left .flyout__arrow, .flyout.flyout--tooltip.flyout--bottom-middle .flyout__arrow {\n      border-bottom-color: #313941; }\n    .flyout.flyout--tooltip.flyout--left-top .flyout__arrow, .flyout.flyout--tooltip.flyout--left-bottom .flyout__arrow, .flyout.flyout--tooltip.flyout--left-middle .flyout__arrow {\n      border-left-color: #313941; }\n    .flyout.flyout--tooltip .flyout__arrow {\n      position: absolute;\n      border: 5px solid transparent; }\n  .flyout.flyout--dropdown {\n    z-index: 5000; }\n    .flyout.flyout--dropdown .flyout__wrapper > ul {\n      list-style: none;\n      margin: 0;\n      padding: 0; }\n      .flyout.flyout--dropdown .flyout__wrapper > ul > li {\n        width: 100%;\n        margin: 0;\n        padding: 0.7rem 0;\n        border-bottom: 1px solid #ddd; }\n        .flyout.flyout--dropdown .flyout__wrapper > ul > li:first-child {\n          padding-top: 0; }\n        .flyout.flyout--dropdown .flyout__wrapper > ul > li:last-child {\n          padding-bottom: 0;\n          border-bottom: none; }\n        .flyout.flyout--dropdown .flyout__wrapper > ul > li > a {\n          display: block; }\n          .flyout.flyout--dropdown .flyout__wrapper > ul > li > a p {\n            margin: 0;\n            color: #313941; }\n    .flyout.flyout--dropdown.flyout--dropdown-has-icons-right .flyout__wrapper > ul > li > a, .flyout.flyout--dropdown.flyout--dropdown-has-icons-left .flyout__wrapper > ul > li > a {\n      position: relative; }\n      .flyout.flyout--dropdown.flyout--dropdown-has-icons-right .flyout__wrapper > ul > li > a > i, .flyout.flyout--dropdown.flyout--dropdown-has-icons-left .flyout__wrapper > ul > li > a > i {\n        font-size: 18px; }\n        .flyout.flyout--dropdown.flyout--dropdown-has-icons-right .flyout__wrapper > ul > li > a > i:first-child, .flyout.flyout--dropdown.flyout--dropdown-has-icons-right .flyout__wrapper > ul > li > a > i:last-child, .flyout.flyout--dropdown.flyout--dropdown-has-icons-left .flyout__wrapper > ul > li > a > i:first-child, .flyout.flyout--dropdown.flyout--dropdown-has-icons-left .flyout__wrapper > ul > li > a > i:last-child {\n          position: absolute;\n          top: 2px;\n          width: 25px;\n          text-align: center; }\n    .flyout.flyout--dropdown.flyout--dropdown-has-icons-right .flyout__wrapper > ul > li > a {\n      padding-right: 30px; }\n      .flyout.flyout--dropdown.flyout--dropdown-has-icons-right .flyout__wrapper > ul > li > a > i:last-child {\n        right: -5px; }\n    .flyout.flyout--dropdown.flyout--dropdown-has-icons-left .flyout__wrapper > ul > li > a {\n      padding-left: 25px; }\n      .flyout.flyout--dropdown.flyout--dropdown-has-icons-left .flyout__wrapper > ul > li > a > i:first-child {\n        left: -5px; }\n", ""]);
 	
 	// exports
 
@@ -51002,6 +50999,7 @@
 	
 	            var dom = _reactDom2.default.findDOMNode(this);
 	            var parent = dom.parentNode;
+	            var flyout = document.querySelector('#' + this.props.id);
 	            var margin = this._getMargin();
 	            var alignments = [];
 	
@@ -51046,8 +51044,6 @@
 	            } else if (alignment[1] === 'left') {
 	                dom.style.right = alignments[1]['left'];
 	            } else if (alignment[1] === 'middle') {
-	                var flyout = document.querySelector('#' + this.props.id);
-	
 	                if (['top', 'bottom'].indexOf(alignment[0]) + 1) {
 	                    dom.style.right = -(flyout.offsetWidth / 2 - parent.offsetWidth / 2) + 'px';
 	                } else {
@@ -51066,6 +51062,11 @@
 	                arrow.style.bottom = 'auto';
 	                arrow.style.left = 'auto';
 	
+	                if (alignment[1] === 'middle' && alignment[0] === 'top') arrowAlignment = { top: '100%', left: flyout.offsetWidth / 2 - arrowBorderWidth + 'px' };
+	                if (alignment[1] === 'middle' && alignment[0] === 'bottom') arrowAlignment = { bottom: '100%', left: flyout.offsetWidth / 2 - arrowBorderWidth + 'px' };
+	                if (alignment[1] === 'middle' && alignment[0] === 'right') arrowAlignment = { right: '100%', top: flyout.offsetHeight / 2 - arrowBorderWidth + 'px' };
+	                if (alignment[1] === 'middle' && alignment[0] === 'left') arrowAlignment = { left: '100%', top: flyout.offsetHeight / 2 - arrowBorderWidth + 'px' };
+	
 	                var arrowAlignmentTB = parent.offsetWidth / 2 - arrowBorderWidth + 'px';
 	                if (alignment[0] === 'top' && alignment[1] === 'right') arrowAlignment = { top: '100%', left: arrowAlignmentTB };
 	                if (alignment[0] === 'top' && alignment[1] === 'left') arrowAlignment = { top: '100%', right: arrowAlignmentTB };
@@ -51077,6 +51078,9 @@
 	                if (alignment[0] === 'right' && alignment[1] === 'bottom') arrowAlignment = { right: '100%', top: arrowAlignmentRL };
 	                if (alignment[0] === 'left' && alignment[1] === 'top') arrowAlignment = { left: '100%', bottom: arrowAlignmentRL };
 	                if (alignment[0] === 'left' && alignment[1] === 'bottom') arrowAlignment = { left: '100%', top: arrowAlignmentRL };
+	
+	                console.log(arrowAlignment);
+	                console.log('-');
 	
 	                for (var k in arrowAlignment) {
 	                    arrow.style[k] = arrowAlignment[k];

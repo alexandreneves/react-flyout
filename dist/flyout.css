@@ -57,13 +57,13 @@
         margin: 0;
         font-size: 0.8rem;
         line-height: 1.2; }
-    .flyout.flyout--tooltip.flyout--top-right .flyout__arrow, .flyout.flyout--tooltip.flyout--top-left .flyout__arrow {
+    .flyout.flyout--tooltip.flyout--top-right .flyout__arrow, .flyout.flyout--tooltip.flyout--top-left .flyout__arrow, .flyout.flyout--tooltip.flyout--top-middle .flyout__arrow {
       border-top-color: #313941; }
-    .flyout.flyout--tooltip.flyout--right-top .flyout__arrow, .flyout.flyout--tooltip.flyout--right-bottom .flyout__arrow {
+    .flyout.flyout--tooltip.flyout--right-top .flyout__arrow, .flyout.flyout--tooltip.flyout--right-bottom .flyout__arrow, .flyout.flyout--tooltip.flyout--right-middle .flyout__arrow {
       border-right-color: #313941; }
-    .flyout.flyout--tooltip.flyout--bottom-right .flyout__arrow, .flyout.flyout--tooltip.flyout--bottom-left .flyout__arrow {
+    .flyout.flyout--tooltip.flyout--bottom-right .flyout__arrow, .flyout.flyout--tooltip.flyout--bottom-left .flyout__arrow, .flyout.flyout--tooltip.flyout--bottom-middle .flyout__arrow {
       border-bottom-color: #313941; }
-    .flyout.flyout--tooltip.flyout--left-top .flyout__arrow, .flyout.flyout--tooltip.flyout--left-bottom .flyout__arrow {
+    .flyout.flyout--tooltip.flyout--left-top .flyout__arrow, .flyout.flyout--tooltip.flyout--left-bottom .flyout__arrow, .flyout.flyout--tooltip.flyout--left-middle .flyout__arrow {
       border-left-color: #313941; }
     .flyout.flyout--tooltip .flyout__arrow {
       position: absolute;

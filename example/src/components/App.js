@@ -8,6 +8,10 @@ import Flyout from '../containers/Flyout';
 require("../../css/stylesheet.css");
 
 let App = ({dispatch}) => {
+    const flyoutOptions0 = {
+        align: 'bottom middle'
+    };
+
     const flyoutOptions1 = {
         type: 'dropdown',
         dropdownIconsLeft: true,
@@ -22,10 +26,6 @@ let App = ({dispatch}) => {
     const flyoutOptions3 = {
         type: 'tooltip',
         align: 'top left'
-    };
-
-    const flyoutOptions0 = {
-        align: 'bottom middle'
     };
 
     const flyoutOps = function(opts, e) {
