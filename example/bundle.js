@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "f960561647f37723f883"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "40c31aa90719d6b64442"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -51291,7 +51291,7 @@
 	        key: '_getAlignment',
 	        value: function _getAlignment() {
 	            // console.info('flyout - _getAlignment');
-	            var defaults = this.props.options.type === 'tooltip' ? 'top right' : 'bottom right';
+	            var defaults = this.props.options.type === 'tooltip' ? 'top middle' : 'bottom right';
 	            var sep = ' ';
 	            var alignment = this.props.options.align;
 	

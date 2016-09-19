@@ -385,7 +385,7 @@ var Flyout = function (_React$Component) {
         key: '_getAlignment',
         value: function _getAlignment() {
             // console.info('flyout - _getAlignment');
-            var defaults = this.props.options.type === 'tooltip' ? 'top right' : 'bottom right';
+            var defaults = this.props.options.type === 'tooltip' ? 'top middle' : 'bottom right';
             var sep = ' ';
             var alignment = this.props.options.align;
 
