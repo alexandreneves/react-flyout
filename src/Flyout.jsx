@@ -127,22 +127,23 @@ class Flyout extends React.Component {
             arrow.style.bottom = 'auto';
             arrow.style.left = 'auto';
 
-            if (alignment[1] === 'middle' && alignment[0] === 'top') arrowAlignment = {top: '100%', left: flyout.offsetWidth/2 - arrowBorderWidth + 'px'}
-            if (alignment[1] === 'middle' && alignment[0] === 'bottom') arrowAlignment = {bottom: '100%', left: flyout.offsetWidth/2 - arrowBorderWidth + 'px'}
-            if (alignment[1] === 'middle' && alignment[0] === 'right') arrowAlignment = {right: '100%', top: flyout.offsetHeight/2 - arrowBorderWidth + 'px'}
-            if (alignment[1] === 'middle' && alignment[0] === 'left') arrowAlignment = {left: '100%', top: flyout.offsetHeight/2 - arrowBorderWidth + 'px'}
+            const arrowAlignmentM = flyout.offsetWidth / 2 - arrowBorderWidth + 'px';
+            if (alignment[1] === 'middle' && alignment[0] === 'top') arrowAlignment = {top: '100%', left: arrowAlignmentM};
+            if (alignment[1] === 'middle' && alignment[0] === 'bottom') arrowAlignment = {bottom: '100%', left: arrowAlignmentM};
+            if (alignment[1] === 'middle' && alignment[0] === 'right') arrowAlignment = {right: '100%', top: arrowAlignmentM};
+            if (alignment[1] === 'middle' && alignment[0] === 'left') arrowAlignment = {left: '100%', top: arrowAlignmentM};
 
-            const arrowAlignmentTB = parent.offsetWidth / 2 - arrowBorderWidth + 'px'
-            if (alignment[0] === 'top' && alignment[1] === 'right') arrowAlignment = {top: '100%', left: arrowAlignmentTB}
-            if (alignment[0] === 'top' && alignment[1] === 'left') arrowAlignment = {top: '100%', right: arrowAlignmentTB}
-            if (alignment[0] === 'bottom' && alignment[1] === 'right') arrowAlignment = {bottom: '100%', left: arrowAlignmentTB}
-            if (alignment[0] === 'bottom' && alignment[1] === 'left') arrowAlignment = {bottom: '100%', right: arrowAlignmentTB}
+            const arrowAlignmentTB = parent.offsetWidth / 2 - arrowBorderWidth + 'px';
+            if (alignment[0] === 'top' && alignment[1] === 'right') arrowAlignment = {top: '100%', left: arrowAlignmentTB};
+            if (alignment[0] === 'top' && alignment[1] === 'left') arrowAlignment = {top: '100%', right: arrowAlignmentTB};
+            if (alignment[0] === 'bottom' && alignment[1] === 'right') arrowAlignment = {bottom: '100%', left: arrowAlignmentTB};
+            if (alignment[0] === 'bottom' && alignment[1] === 'left') arrowAlignment = {bottom: '100%', right: arrowAlignmentTB};
 
             const arrowAlignmentRL = parent.offsetHeight / 2 - arrowBorderWidth + 'px';
-            if (alignment[0] === 'right' && alignment[1] === 'top') arrowAlignment = {right: '100%', bottom: arrowAlignmentRL}
-            if (alignment[0] === 'right' && alignment[1] === 'bottom') arrowAlignment = {right: '100%', top: arrowAlignmentRL}
-            if (alignment[0] === 'left' && alignment[1] === 'top') arrowAlignment = {left: '100%', bottom: arrowAlignmentRL}
-            if (alignment[0] === 'left' && alignment[1] === 'bottom') arrowAlignment = {left: '100%', top: arrowAlignmentRL}
+            if (alignment[0] === 'right' && alignment[1] === 'top') arrowAlignment = {right: '100%', bottom: arrowAlignmentRL};
+            if (alignment[0] === 'right' && alignment[1] === 'bottom') arrowAlignment = {right: '100%', top: arrowAlignmentRL};
+            if (alignment[0] === 'left' && alignment[1] === 'top') arrowAlignment = {left: '100%', bottom: arrowAlignmentRL};
+            if (alignment[0] === 'left' && alignment[1] === 'bottom') arrowAlignment = {left: '100%', top: arrowAlignmentRL};
 
             for (let k in arrowAlignment) {
                 arrow.style[k] = arrowAlignment[k];
