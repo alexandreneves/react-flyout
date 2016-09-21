@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "725b5ff2eed45cfb5d26"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "2772f721188ef1c5fe48"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -51215,7 +51215,6 @@
 	            // console.info('flyout - _sizeHandler');
 	
 	            var flyout = document.querySelector('#' + this.props.id);
-	            var width = window.innerWidth;
 	
 	            if (window.innerWidth < this.mediaQueries.mediumUp) {
 	                flyout.classList.add('flyout--fixed');

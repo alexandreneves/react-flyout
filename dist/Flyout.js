@@ -309,7 +309,6 @@ var Flyout = function (_React$Component) {
             // console.info('flyout - _sizeHandler');
 
             var flyout = document.querySelector('#' + this.props.id);
-            var width = window.innerWidth;
 
             if (window.innerWidth < this.mediaQueries.mediumUp) {
                 flyout.classList.add('flyout--fixed');
