@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "40c31aa90719d6b64442"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "725b5ff2eed45cfb5d26"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -51065,10 +51065,11 @@
 	                arrow.style.bottom = 'auto';
 	                arrow.style.left = 'auto';
 	
-	                if (alignment[1] === 'middle' && alignment[0] === 'top') arrowAlignment = { top: '100%', left: flyout.offsetWidth / 2 - arrowBorderWidth + 'px' };
-	                if (alignment[1] === 'middle' && alignment[0] === 'bottom') arrowAlignment = { bottom: '100%', left: flyout.offsetWidth / 2 - arrowBorderWidth + 'px' };
-	                if (alignment[1] === 'middle' && alignment[0] === 'right') arrowAlignment = { right: '100%', top: flyout.offsetHeight / 2 - arrowBorderWidth + 'px' };
-	                if (alignment[1] === 'middle' && alignment[0] === 'left') arrowAlignment = { left: '100%', top: flyout.offsetHeight / 2 - arrowBorderWidth + 'px' };
+	                var arrowAlignmentM = flyout.offsetWidth / 2 - arrowBorderWidth + 'px';
+	                if (alignment[1] === 'middle' && alignment[0] === 'top') arrowAlignment = { top: '100%', left: arrowAlignmentM };
+	                if (alignment[1] === 'middle' && alignment[0] === 'bottom') arrowAlignment = { bottom: '100%', left: arrowAlignmentM };
+	                if (alignment[1] === 'middle' && alignment[0] === 'right') arrowAlignment = { right: '100%', top: arrowAlignmentM };
+	                if (alignment[1] === 'middle' && alignment[0] === 'left') arrowAlignment = { left: '100%', top: arrowAlignmentM };
 	
 	                var arrowAlignmentTB = parent.offsetWidth / 2 - arrowBorderWidth + 'px';
 	                if (alignment[0] === 'top' && alignment[1] === 'right') arrowAlignment = { top: '100%', left: arrowAlignmentTB };
