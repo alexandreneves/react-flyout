@@ -267,7 +267,6 @@ class Flyout extends React.Component {
         // console.info('flyout - _sizeHandler');
 
         const flyout = document.querySelector('#'+ this.props.id);
-        const width = window.innerWidth;
 
         if (window.innerWidth < this.mediaQueries.mediumUp) {
             flyout.classList.add('flyout--fixed');
