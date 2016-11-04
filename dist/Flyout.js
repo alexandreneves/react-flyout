@@ -84,7 +84,7 @@ var Flyout = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'flyout__wrapper' },
-                    this.props.children
+                    _react2.default.cloneElement(this.props.children, { data: this.props })
                 ),
                 arrow
             );
