@@ -52,7 +52,7 @@ class Flyout extends React.Component {
         return (
             <div id={this.props.id} className={classes}>
                 <div className="flyout__wrapper">
-                    {this.props.children}
+                    {React.cloneElement(this.props.children, {data: this.props})}
                 </div>
                 {arrow}
             </div>
