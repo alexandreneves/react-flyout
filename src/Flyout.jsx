@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -119,7 +117,7 @@ class Flyout extends React.Component {
         // arrow
         if (this.props.options.type === 'tooltip') {
             const arrow = document.querySelector(`#${this.props.id} .flyout__arrow`);
-            const arrowBorderWidth = parseInt(window.getComputedStyle(arrow, null).getPropertyValue('border-top-width'));
+            const arrowBorderWidth = parseInt(window.getComputedStyle(arrow, null).getPropertyValue('border-top-width'), 10);
             let arrowAlignment;
 
             arrow.style.top = 'auto';
@@ -168,15 +166,15 @@ class Flyout extends React.Component {
         const windowHeight = window.innerHeight;
 
         const trigger = this._getTrigger();
-        const triggerHeight = parseInt(trigger.offsetHeight);
-        const triggerOffsetTop = parseInt(this._getOffset(trigger)['top']);
+        const triggerHeight = parseInt(trigger.offsetHeight, 10);
+        const triggerOffsetTop = parseInt(this._getOffset(trigger)['top'], 10);
 
         const flyout = document.querySelector('#'+ this.props.id);
         const flyoutContent = document.querySelector('#'+ this.props.id + '> div'); // todo: fix me
-        const flyoutHeight = parseInt(flyout.offsetHeight);
-        const flyoutOffsetTop = parseInt(this._getOffset(flyout)['top']);
-        const flyoutMinHeight = parseInt(flyout.style.minHeight) | 0;
-        const flyoutMaxHeight = parseInt(flyout.style.maxHeight) | 0;
+        const flyoutHeight = parseInt(flyout.offsetHeight, 10);
+        const flyoutOffsetTop = parseInt(this._getOffset(flyout)['top'], 10);
+        const flyoutMinHeight = parseInt(flyout.style.minHeight, 10) | 0;
+        const flyoutMaxHeight = parseInt(flyout.style.maxHeight, 10) | 0;
 
         const alignment = this._getAlignment();
 
@@ -230,7 +228,7 @@ class Flyout extends React.Component {
         // console.info('flyout - _setMaxHeight');
         const windowHeight = window.innerHeight;
         const flyoutContent = document.querySelector('#'+ this.props.id +' > div');
-        const maxHeight = parseInt(windowHeight / 1.20);
+        const maxHeight = parseInt(windowHeight / 1.20, 10);
 
         flyoutContent.style.maxHeight = maxHeight;
     }
