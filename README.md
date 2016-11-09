@@ -23,15 +23,14 @@ Flyout React Component
 
 ## EXAMPLE
 
-[Checkout the example](https://alexandreneves.github.io/react-flyout) (Redux).
-If requested I can provide an Alt example.
+[Example (redux)](https://alexandreneves.github.io/react-flyout), if requested I can provide an Alt example.
 
 
 
 ## INSTALLATION
 
 ```sh
-$ npm i @aneves/react-flyout
+$ npm install --save @aneves/react-flyout
 ```
 
 
@@ -49,9 +48,7 @@ react-flyout is composed by 3 files
 + **flyout.css**
     + well... you know... CSS
 
-### Why not dumb?
-
-The problem with these kind of componentes (dropdowns, modals, ...) is the need to handle window/body clicks in order to close. Why is this a problem? The lack of state (in this case) and the immutability of the props make it "impossible" to close itself.
+The problem with these kind of componentes (dropdowns, modals, ...) is the need to handle window/body clicks in order to close. Why is this a problem? The lack of state and the immutability of the props make it "impossible" to close itself.
 
 That's why I provide the **FlyoutWrapper** which adds and removes the window click eventListener when needed and accepts a method through the props that gets executed by the handler. This method can in turn close the flyout by updating the props sent to the wrapper.
 
