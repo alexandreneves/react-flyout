@@ -1,13 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
-import {Provider} from 'react-redux';
-import {createStore} from 'redux';
-import exampleApp from './reducers';
-import App from './components/App';
+import Root from './containers/Root';
 
-let store = createStore(exampleApp);
+import './css/stylesheet.css';
 
-render(
-    <Provider store={store}><App /></Provider>,
-    document.getElementById('example')
-);
+render(<Root />, document.getElementById('example'));

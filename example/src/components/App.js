@@ -5,8 +5,6 @@ import {flyoutToggle, flyoutOptions} from '../actions';
 
 import Flyout from '../containers/Flyout';
 
-require("../../css/stylesheet.css");
-
 let App = ({dispatch}) => {
     const flyoutOptions0 = {
         align: 'bottom middle'
@@ -38,7 +36,7 @@ let App = ({dispatch}) => {
             <div className="examples">
                 <h3>examples</h3>
                 <div className="has-flyout">
-                    <button type="button" className="button-primary" data-flyout-id="flyout-foobar1" onClick={e => {dispatch(flyoutToggle('flyout-foobar1'))}}>dropdown menu</button>
+                    <button type="button" data-flyout-id="flyout-foobar1" onClick={e => {dispatch(flyoutToggle('flyout-foobar1'))}}>dropdown menu</button>
                     <Flyout id="flyout-foobar1" options={flyoutOptions1}>
                         <ul>
                             <li><a href="#"><i className="fa fa-rocket" />Most recent</a></li>
@@ -49,16 +47,16 @@ let App = ({dispatch}) => {
                     </Flyout>
                 </div>
                 <div className="has-flyout">
-                    <button type="button" className="button-primary" data-flyout-id="flyout-foobar2" onClick={e => {dispatch(flyoutToggle('flyout-foobar2'))}}>text & button</button>
+                    <button type="button" data-flyout-id="flyout-foobar2" onClick={e => {dispatch(flyoutToggle('flyout-foobar2'))}}>text & button</button>
                     <Flyout id="flyout-foobar2" options={flyoutOptions2}>
                         <div>
                             <p>Lorizzle ipsizzle dolizzle sit fo shizzle, fo shizzle mah nizzle fo rizzle...</p>
-                            <button type="button" className="button-primary">Shizzle!</button>
+                            <button type="button">Shizzle!</button>
                         </div>
                     </Flyout>
                 </div>
                 <div className="has-flyout">
-                    <button type="button" className="button-primary" data-flyout-id="flyout-foobar3"
+                    <button type="button" data-flyout-id="flyout-foobar3"
                         onMouseOver={e => {dispatch(flyoutToggle('flyout-foobar3'))}}
                         onMouseLeave={e => {dispatch(flyoutToggle('flyout-foobar3'))}}
                         >tooltip</button>
@@ -74,7 +72,7 @@ let App = ({dispatch}) => {
                 <h3>settings</h3>
 
                 <div className="has-flyout">
-                    <button type="button" className="button-primary" data-flyout-id="flyout-foobar0" onClick={e => {dispatch(flyoutToggle('flyout-foobar0'))}}>test me</button>
+                    <button type="button" data-flyout-id="flyout-foobar0" onClick={e => {dispatch(flyoutToggle('flyout-foobar0'))}}>test me</button>
                     <Flyout id="flyout-foobar0" options={flyoutOptions0}>
                         <div>
                             <p>Change settings bellow</p>

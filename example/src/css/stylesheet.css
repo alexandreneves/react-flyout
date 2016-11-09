@@ -1,13 +1,16 @@
-@import url("./normalize.css");
-@import url("./skeleton.css");
-@import url("../../dist/flyout.css");
+@import '~normalize.css/normalize.css';
+@import '~milligram/dist/milligram.min.css';
+@import '~font-awesome/css/font-awesome.min.css';
+@import '~../flyout/flyout.css';
 
 /* skeleton resets */
 
 html { font-size: 100%; }
 body { font-size: 1rem; }
-h1 { font-size: 3.5rem; }
-h1 { margin: 0; }
+h1 {
+    font-size: 3.5rem;
+    margin: 1rem 0 0 0;
+}
 h3 { font-size: 2.5rem; }
 
 /* defaults */
@@ -25,11 +28,10 @@ body > img {
 
 a {
     display: block;
-    text-decoration: none;
 }
 
 p {
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
 }
 
 .examples {
@@ -37,9 +39,11 @@ p {
 }
 
 button {
+    padding: 0 1.5rem;
     margin: 0;
-    padding: 0 1rem;
-    background: white;
+    height: 3.5rem;
+    line-height: 3.5rem;
+    font-size: 1rem;
 }
 
 button + button {
@@ -48,8 +52,15 @@ button + button {
 
 /* flyouts */
 
+.flyout button {
+    padding: 0 1rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    font-size: 0.8rem;
+}
+
 .flyout-foobar0 {
-    width: 225px;
+    width: 250px;
     text-align: center;
 }
 
@@ -69,8 +80,8 @@ button + button {
 
 .alignto {
     overflow: hidden;
-    width: 150px;
-    margin: 0 auto 1.2rem;
+    width: 160px;
+    margin: 1rem auto 1.5rem;
     padding: 5px;
 }
 
@@ -90,7 +101,7 @@ button + button {
 }
 
 .alignto__clickable:hover {
-    background: #33C3F0;
+    background: #606c76;
     color: white;
 }
 

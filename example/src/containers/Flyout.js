@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import {flyoutToggle} from '../actions';
 import _ from 'lodash';
 
-import FlyoutWrapper from '../../../src/FlyoutWrapper';
+import FlyoutWrapper from '../flyout/FlyoutWrapper';
 
 const mapStateToProps = (state, ownProp) => {
     if (state.flyoutToggle.id === ownProp.id) {
