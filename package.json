@@ -39,7 +39,7 @@
     "react-dom": "^15.3.2"
   },
   "dependencies": {
-    "@aneves/js-closest": "^0.1.1"
+    "@aneves/js-closest": "^0.1.2"
   },
   "scripts": {
     "build": "npm run build-css && npm run build-js && npm run copy-to-example",
