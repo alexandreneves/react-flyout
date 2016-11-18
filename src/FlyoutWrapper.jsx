@@ -46,13 +46,13 @@ class FlyoutWrapper extends React.Component {
         // console.log('flyout - _handleClick');
         let dom = ReactDOM.findDOMNode(this);
 
+        if (e.target.getAttribute('data-flyout') === 'keepopen') return false;
+
         // check if click was outside or inside the flyout
-        if (dom) {
-            if (dom.contains(e.target)) {
-                if (Closest(e.target, 'tag', 'a')) this.props.onWindowClick();
-            } else {
-                this.props.onWindowClick();
-            }
+        if (dom && dom.contains(e.target)) {
+            if (Closest(e.target, 'tag', 'a')) this.props.onWindowClick();
+        } else {
+            this.props.onWindowClick();
         }
     }
 }
