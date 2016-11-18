@@ -89,13 +89,13 @@ var FlyoutWrapper = function (_React$Component) {
             // console.log('flyout - _handleClick');
             var dom = _reactDom2.default.findDOMNode(this);
 
+            if (e.target.getAttribute('data-flyout') === 'keepopen') return false;
+
             // check if click was outside or inside the flyout
-            if (dom) {
-                if (dom.contains(e.target)) {
-                    if ((0, _jsClosest2.default)(e.target, 'tag', 'a')) this.props.onWindowClick();
-                } else {
-                    this.props.onWindowClick();
-                }
+            if (dom && dom.contains(e.target)) {
+                if ((0, _jsClosest2.default)(e.target, 'tag', 'a')) this.props.onWindowClick();
+            } else {
+                this.props.onWindowClick();
             }
         }
     }]);
