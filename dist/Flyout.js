@@ -310,7 +310,7 @@ var Flyout = function (_React$Component) {
 
             var flyout = document.querySelector('#' + this.props.id);
 
-            if (window.innerWidth < this.mediaQueries.mediumUp) {
+            if (window.innerWidth < this.mediaQueries.breakpointSmall) {
                 flyout.classList.add('flyout--fixed');
                 this._bodyClassSet();
             } else {
