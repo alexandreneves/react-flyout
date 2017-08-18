@@ -208,13 +208,13 @@ class Flyout extends React.Component {
 
                 // check the max-height possible
                 let newFlyoutMaxHeight = windowHeight - (flyoutOffsetTop) - this._getMaxHeightOffset(getMaxHeightOffsetPosition);
-                
+
                 // verify it against a possible setted max-height
                 if (flyoutMaxHeight !== 0 && newFlyoutMaxHeight >= flyoutMaxHeight) return false;
 
                 // removing min-height for extreme cases
                 if (newFlyoutMaxHeight < flyoutMinHeight) flyout.style.minHeight = 0;
-                
+
                 // set new max-height
                 flyoutContent.style.maxHeight = newFlyoutMaxHeight +'px';
 
@@ -317,7 +317,7 @@ class Flyout extends React.Component {
             this.body.setAttribute('data-flyoutBodyScrollPosition', window.pageYOffset);
         }
     }
-    
+
     _scrollPositionLoad() {
         // console.info('flyout - _loadScrollPosition');
         if (this.body.classList && !this.body.classList.contains('has-flyout--fixed')) return false;

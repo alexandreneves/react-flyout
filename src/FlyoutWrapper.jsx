@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Flyout from './Flyout';
@@ -58,9 +59,9 @@ class FlyoutWrapper extends React.Component {
 }
 
 FlyoutWrapper.propTypes = {
-    id: React.PropTypes.string.isRequired,
-    open: React.PropTypes.bool,
-    options: React.PropTypes.object
+    id: PropTypes.string.isRequired,
+    open: PropTypes.bool,
+    options: PropTypes.object
 };
 
 FlyoutWrapper.defaultProps = {
